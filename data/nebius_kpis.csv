@@ -77,3 +77,12 @@ period,metric,value,unit,source_quality,source,notes
 2026-10-01,on_demand_price_change_memory,41,pct,secondary,https://www.silicon.co.uk/cloud/ai/nebius-prices-ai-631634,
 2026-05,on_demand_price_change_avg,29,pct,author_notes,Nebius.MD,May 2026 round; average on on-demand capacity; unverified
 2026-09,premium_contract_value_per_mw,40-50,USD_mn_per_MW,author_notes,Nebius.MD,Short-duration premium contracts; vs 20-25 for core long-term deals; unverified
+2026-10,active_power_est,200-275,MW,author_notes,notes/2026-10-nebius-report-draft.md,Vineland 100-150; Mantsala 75; other sites 45-50
+2026-10,under_construction_power_est,0.8-1.3,GW,author_notes,notes/2026-10-nebius-report-draft.md,~1 GW midpoint; 0.3-0.6 GW finishing by YE26
+2026-10,contracted_power_est,4.05,GW,author_notes,notes/2026-10-nebius-report-draft.md,Site-level sum: US owned 2.7; US leased 0.47; Europe 0.8; Israel 0.08
+2026-10,price_per_mw_short_term,40,USD_mn_per_MW_yr,author_notes,notes/2026-10-nebius-report-draft.md,Annual revenue per MW; short-term contracts
+2026-10,price_per_mw_mid_term,20-25,USD_mn_per_MW_yr,author_notes,notes/2026-10-nebius-report-draft.md,1-3 year contracts; Q2 2026 floor
+2026-10,price_per_mw_long_term,12,USD_mn_per_MW_yr,author_notes,notes/2026-10-nebius-report-draft.md,5-year hyperscaler; Microsoft deal implies 11.6-12.9
+2026-10-09,share_price_close,221.33,USD,secondary,https://finance.yahoo.com/quote/NBIS/,Robinhood quote 221.33; Yahoo close 221.07; market cap ~60.1B
+2026-Q2,eigen_purchase_consideration,331.4,USD_mn,filing,Q2-2026 6-K Ex99.2 F-15,Closed 2026-06-10
+2026-Q2,eigen_retention_compensation,549.2,USD_mn,filing_derived,Q2-2026 6-K Ex99.2 F-16,508.1 stock vesting 4 yrs + 10.5 cash + 30.6 deferred cash
