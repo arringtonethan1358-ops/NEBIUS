@@ -32,6 +32,7 @@
   - **Equity:** ~38M new shares or share equivalents in H1 alone. [F2 F-5, F-31]
   - **Concentration:** three customers are **59%** of revenue. [F2 F-17]
 - **Our framing:** the stock is a bet on turning **$7.8B of not-yet-in-service equipment** and 5 GW of contracted power into revenue on schedule. The open question is how much of that gets funded by customer prepayments rather than new shares.
+- **Our call** ([one page](call-note.md)): the stock needs ~$11–15M of ARR per MW, the GPUs need ~$20M to earn back their cost, and the only disclosed hyperscaler contract pays ~$12M. Q3 is the first test; the predictions are in the [scorecard](scorecard.md).
 - **The longer-term thesis** (§7): GPU scarcity wins customers today, but software on top of the GPU keeps them. Nebius is using scarcity pricing to fund a push up the stack (Tavily, ClarifAI, Eigen AI). The winners will own everything from chip to token. [N]
 
 ---
@@ -361,6 +362,7 @@ While the debt is outstanding, a paid-off older GPU out-earns a new financed one
 - **Sum of the parts:** AI cloud + ClickHouse ($1.52B carrying value) + Toloka ($86.5M) + Avride (last round) + TripleTen.
 - **Scenario model:** [`models/output/scenarios.md`](../models/output/scenarios.md) has bear, base and bull paths for ARR, revenue, EBITDA, capex and the 2027 funding gap. Plug its 2027 EBITDA into the multiple above.
 - **Peers:** [`research/peer-comparison.md`](peer-comparison.md) compares Nebius with CoreWeave and IREN on growth, backlog, capex intensity and funding.
+- **5 GW funding model:** [`models/output/funding_5gw.md`](../models/output/funding_5gw.md) ports the author's 2027–2030 workbook and reconciles it to the filings. At the workbook's $58.7M of capex per MW, 2030 net income breaks even at ~$20.6M of ARR per MW, and today's price implies ~$11–15M. The argument is in the [call note](call-note.md) and the workbook review in [`notes/2026-10-funding-model-review.md`](../notes/2026-10-funding-model-review.md).
 
 ---
 
