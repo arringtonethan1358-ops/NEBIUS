@@ -100,6 +100,8 @@ These corrections and additions have been applied to the draft, marked ✎:
 - the Inferize section
 - a utilization sensitivity table and the equilibrium result: a new financed B200 matches a paid-off H100 at 70% only at ~89% utilization, or ~$5.31 an hour
 
+**Searched 2026-10-11, no direct source found:** the $170B capex figure (it fits the author's own $50–60M per MW × ~3 GW math, so treat it as an estimate) and the NVIDIA quota claim (only partial support). Findings are added to the draft.
+
 **Still waiting on the author, marked [needs source] in the draft:**
 - the CRO quote
 - the $170B capex figure
