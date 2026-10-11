@@ -13,13 +13,13 @@ Independent research on **Nebius Group (NASDAQ: NBIS)**, the AI cloud and GPU in
 |---|---|
 | `research/` | Long-form theses and deep dives |
 | `earnings/` | One note per quarter (copy `earnings/TEMPLATE.md`) |
-| `data/` | Tracked KPIs in tidy CSV form; every row carries a source URL and a source-quality label |
+| `data/` | Tracked KPIs in tidy CSV form; every row carries a source (filing page or URL) and a source-quality label |
 | `models/` | *(planned)* Scripts that read `data/` to build forecasts and valuation |
 
 ## Sourcing rules
 
 1. Every number gets a citation.
-2. Label each source as `primary_linked` (company release, shareholder letter, SEC filing) or `secondary` (press, analysts, aggregators).
+2. Label each source: `filing` (6-K/20-F financial statements, with page), `filing_derived` (arithmetic on filed numbers), `primary_linked` (company release or letter), or `secondary` (press, analysts).
 3. Replace secondary figures with primary ones whenever possible.
 
 ---
