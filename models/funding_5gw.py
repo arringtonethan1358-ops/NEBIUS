@@ -15,7 +15,8 @@ change's effect on the 2030 outputs is visible (see notes/2026-10-funding-model-
   4. Accounting: depreciation on non-GPU and existing assets; EPS and the issue
      price use modeled shares and cash.
 
-Writes models/output/funding_5gw.md and models/output/funding_5gw.csv.
+Writes models/output/funding_5gw.md, funding_5gw.csv (every step, every year) and
+funding_sensitivity.csv (the reconciled model across a grid of ARR per MW).
 Run from the repo root:  python models/funding_5gw.py   (standard library only)
 """
 
@@ -375,6 +376,27 @@ def write_csv(results):
                 w.writerow([key, year] + [round(o[k][i], 4) for k in fields[2:]])
 
 
+def write_sensitivity_csv(final):
+    """Reconciled model at a grid of ARR per MW, plus the labelled reference, break-even and implied points."""
+    price = scen.VALUATION["price"]
+    points = [("reference", basis or f"${p:.0f}M", p) for p, basis in SENSITIVITY_PRICES]
+    points += [("grid", "", float(p)) for p in range(6, 27) if float(p) not in {x for x, _ in SENSITIVITY_PRICES}]
+    points += [("breakeven", "Break-even, 5-year GPU life", breakeven_price(final)),
+               ("breakeven", "Break-even, 6-year GPU life", breakeven_price(dict(final, gpu_life=6)))]
+    points += [("implied", f"Implied by ${price:.2f} at {m:g}x EBITDA", implied_price_per_mw(final, m, price))
+               for m in EXIT_MULTIPLES]
+    fields = ["kind", "label", "arr_per_mw", "arr_2030", "ebitda_2030", "net_income_2030_5y", "net_income_2030_6y",
+              "dilution", "value_2030_6x", "value_today_6x", "value_2030_9_5x", "value_today_9_5x"]
+    with open(OUT / "funding_sensitivity.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(fields)
+        for kind, label, mw in sorted(points, key=lambda x: x[2]):
+            o5, o6 = compute(at_price(final, mw)), compute(at_price(dict(final, gpu_life=6), mw))
+            (v6, pv6), (v9, pv9) = (value_per_share(o5, m) for m in EXIT_MULTIPLES)
+            w.writerow([kind, label] + [round(x, 4) + 0.0 for x in (mw, o5["arr"][3], o5["ebitda"][3], o5["net_income"][3],
+                                                               o6["net_income"][3], o5["dilution"][3], v6, pv6, v9, pv9)])
+
+
 def main():
     results = []
     for key, label, what, inputs in steps():
@@ -385,6 +407,7 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     write_markdown(results)
     write_csv(results)
+    write_sensitivity_csv(steps()[-1][3])
     for key, label, _, o in results:
         print(f"{label:28} 2030 ARR {fmt(o['arr'][3]):>8}  external {fmt(sum(o['external'])):>8}  "
               f"cash {fmt(o['cash_close'][3]):>7}  diluted {o['shares_diluted'][3]:5.0f}M  EPS {fmt(o['eps'][3], '', 2):>7}")
