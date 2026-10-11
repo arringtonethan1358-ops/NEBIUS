@@ -3,6 +3,7 @@
 Reads actuals from data/nebius_kpis.csv and writes:
   models/output/scenarios.md   tables for each scenario plus the guidance check
   models/output/scenarios.csv  quarterly rows for every scenario
+  models/output/summary.csv    one row per scenario: annual totals and EV multiples
   models/output/arr.svg        ARR paths by scenario
 
 Run from the repo root:  python models/nebius_scenarios.py
@@ -164,6 +165,16 @@ def header(first=""):
     return [f"| {first} | " + " | ".join(names) + " |", "|---" * (len(names) + 1) + "|"]
 
 
+def enterprise_value():
+    v = VALUATION
+    cash = v["cash_jun30"] + v["aug_converts_net"] + v["secured_facility"]
+    shares_lo = v["shares_outstanding"] + v["nvidia_warrants"] + v["exchange_shares"]
+    debt_lo = v["converts_accreted"] - v["exchanged_principal"] + v["aug_converts_face"] + v["secured_facility"]
+    shares_hi = v["shares_outstanding"] + v["nvidia_warrants"]
+    debt_hi = v["converts_fair_value"] + v["aug_converts_face"] + v["secured_facility"]
+    return v["price"] * shares_lo + debt_lo - cash, v["price"] * shares_hi + debt_hi - cash
+
+
 def valuation(t):
     v = VALUATION
     cash = v["cash_jun30"] + v["aug_converts_net"] + v["secured_facility"]
@@ -299,6 +310,24 @@ def write_csv(results):
                 w.writerow({k: (round(v, 2) if isinstance(v, float) else v) for k, v in r.items()})
 
 
+def write_summary(results, act):
+    """One row per scenario: annual totals and EV multiples (feeds the dashboard)."""
+    ev_lo, ev_hi = enterprise_value()
+    fields = ["scenario", "label", "rev_2026", "arr_ye26", "ebitda_2026", "margin_2026", "rev_2027", "arr_ye27",
+              "ebitda_2027", "margin_2027", "capex_2027", "gap_2027", "ev_low", "ev_high",
+              "ev_arr26_low", "ev_arr26_high", "ev_ebitda27_low", "ev_ebitda27_high"]
+    with open(OUT / "summary.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(fields)
+        for s in SCENARIOS:
+            y26, y27 = year_totals(results[s], "2026", act), year_totals(results[s], "2027", act)
+            row = [s, SCENARIOS[s]["label"], y26["group_revenue"], y26["arr_ye"], y26["group_ebitda"], y26["margin"],
+                   y27["group_revenue"], y27["arr_ye"], y27["group_ebitda"], y27["margin"], y27["capex"], y27["funding_gap"],
+                   ev_lo, ev_hi, ev_lo / (y26["arr_ye"] * 1000), ev_hi / (y26["arr_ye"] * 1000),
+                   ev_lo / y27["group_ebitda"], ev_hi / y27["group_ebitda"]]
+            w.writerow([round(x, 4) if isinstance(x, float) else x for x in row])
+
+
 def write_svg(results, act):
     labels = ["2026-Q1", "2026-Q2"] + QUARTERS
     series = {s: [act["arr_q1"], act["arr_q2"]] + [r["arr_end_bn"] for r in results[s]] for s in SCENARIOS}
@@ -337,6 +366,7 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     write_markdown(results, act)
     write_csv(results)
+    write_summary(results, act)
     write_svg(results, act)
     for s in SCENARIOS:
         y26, y27 = year_totals(results[s], "2026", act), year_totals(results[s], "2027", act)

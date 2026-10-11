@@ -15,7 +15,7 @@ Independent research on **Nebius Group (NASDAQ: NBIS)**, the AI cloud and GPU in
 |---|---|
 | `research/` | Long-form theses and deep dives |
 | `earnings/` | One note per quarter (copy `earnings/TEMPLATE.md`). Next up: [`2026-Q3.md`](earnings/2026-Q3.md), a pre-earnings draft with the bars Q3 must clear |
-| `data/` | Tracked KPIs in tidy CSV form; every row carries a source (filing page or URL) and a source-quality label |
+| `data/` | `nebius_kpis.csv`: tracked KPIs, each row with a source and a source-quality label. `mw_pipeline.csv` and `contracted_sites.csv`: the author's capacity estimates by stage and site |
 | `notes/` | Working drafts and running theses, not yet polished. Includes the author's [October 2026 report draft](notes/2026-10-nebius-report-draft.md) and its [fact-check](notes/2026-10-report-review.md) |
 | `scripts/` | `validate_kpis.py` checks the KPI dataset's schema and sourcing rules. It runs automatically on every pull request |
 | `models/` | `nebius_scenarios.py`: bear, base, bull and author's-pipeline model through 2027, built from `data/`, with EV multiples at the current share price. Output is in [`models/output/scenarios.md`](models/output/scenarios.md). CI fails if the output is stale |
