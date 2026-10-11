@@ -1,0 +1,32 @@
+period,metric,value,unit,source_quality,source_url,notes
+2025-Q4,ai_arr,1.25,USD_bn,secondary,https://www.tikr.com/blog/nbis-has-gained-167-in-2026-the-revenue-chart-explains-why,Year-end 2025 Nebius AI ARR
+2025-Q4,group_adj_ebitda,15,USD_mn,secondary,https://www.tikr.com/blog/nbis-has-gained-167-in-2026-the-revenue-chart-explains-why,
+2025-Q4,ai_adj_ebitda_margin,24,pct,secondary,https://www.tikr.com/blog/nbis-has-gained-167-in-2026-the-revenue-chart-explains-why,
+2025-Q4,active_power,170,MW,primary_linked,https://assets.nebius.com/assets/e59fb92e-9027-473a-8cac-04f9d2e9ea9a/Shareholder%20Letter%20Q4%202025.pdf,Approximate; vs 100 MW target
+2026-Q1,group_revenue,399,USD_mn,secondary,https://www.tikr.com/blog/nbis-has-gained-167-in-2026-the-revenue-chart-explains-why,+684% YoY; +75% QoQ
+2026-Q1,ai_revenue,390,USD_mn,secondary,https://www.tikr.com/blog/nbis-has-gained-167-in-2026-the-revenue-chart-explains-why,+841% YoY
+2026-Q1,ai_arr,1.9,USD_bn,secondary,https://www.tikr.com/blog/nbis-has-gained-167-in-2026-the-revenue-chart-explains-why,End of March
+2026-Q1,group_adj_ebitda,130,USD_mn,secondary,https://www.tikr.com/blog/nbis-has-gained-167-in-2026-the-revenue-chart-explains-why,32% margin
+2026-Q1,ai_adj_ebitda_margin,45,pct,secondary,https://www.tikr.com/blog/nbis-has-gained-167-in-2026-the-revenue-chart-explains-why,
+2026-Q1,net_income,621,USD_mn,secondary,https://www.tikr.com/blog/nbis-has-gained-167-in-2026-the-revenue-chart-explains-why,Includes non-cash ClickHouse revaluation gain
+2026-Q1,cash,9.3,USD_bn,secondary,https://www.tikr.com/blog/nbis-has-gained-167-in-2026-the-revenue-chart-explains-why,Quarter-end
+2026-Q1,operating_cash_flow,2.3,USD_bn,secondary,https://www.tikr.com/blog/nbis-has-gained-167-in-2026-the-revenue-chart-explains-why,Driven by customer prepayments
+2026-Q1,contracted_power,3.5,GW,primary_linked,https://assets.nebius.com/assets/aa1bc2e6-df83-40cd-a6a2-95e7cda3d16c/Nebius%20SHL_Q1%202026.pdf,">3.5 GW"
+2026-Q2,group_revenue,582.3,USD_mn,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,+454% YoY from 105.1
+2026-Q2,ai_revenue,575,USD_mn,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,+514% YoY; 98% of group
+2026-Q2,ai_arr,3.0,USD_bn,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,End of June; +56% QoQ (call says 58%)
+2026-Q2,group_adj_ebitda_margin,41,pct,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,
+2026-Q2,ai_adj_ebitda_margin,50,pct,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,
+2026-Q2,net_income,-190.4,USD_mn,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,
+2026-Q2,diluted_eps,-0.68,USD,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,
+2026-Q2,capex,5.66,USD_bn,secondary,https://247wallst.com/investing/2026/10/01/just-how-exposed-is-nebius-at-235/,
+2026-Q2,operating_cash_flow,2.25,USD_bn,secondary,https://247wallst.com/investing/2026/10/01/just-how-exposed-is-nebius-at-235/,
+2026-Q2,top3_customer_share,59,pct,secondary,https://247wallst.com/investing/2026/10/01/just-how-exposed-is-nebius-at-235/,24% / 21% / 14%
+2026-Q2,rpo,37.49,USD_bn,secondary,https://247wallst.com/investing/2026/10/01/just-how-exposed-is-nebius-at-235/,Remaining performance obligations
+2026-FY-guide,group_revenue,3.0-3.4,USD_bn,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,Reaffirmed Aug 2026
+2026-FY-guide,ai_arr_year_end,7-9,USD_bn,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,Reaffirmed Aug 2026
+2026-FY-guide,group_adj_ebitda_margin,40,pct,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,Approximately
+2026-FY-guide,capex,20-25,USD_bn,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,Raised from 16-20 in Q1
+2026-FY-guide,contracted_power_year_end,5,GW,primary_linked,https://assets.nebius.com/assets/4462517b-ce83-41f2-96ed-f2ac1bc06a05/SHLQ226%20(1).pdf-0,Raised from 4 GW
+2026-FY-guide,connected_power_year_end,0.8-1.0,GW,secondary,https://finance.yahoo.com/technology/ai/articles/nebius-group-q2-earnings-call-150444472.html,Fully active 1H 2027
+2026-FY-guide,customer_prepayments,9,USD_bn,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,">$9B expected in 2026"
