@@ -48,6 +48,13 @@
 
 Source: [F2 F-33].
 
+**How customers buy compute [N]:**
+- **Bare metal:** the whole physical GPU server, with no virtualization layer.
+- **Managed Kubernetes or Slurm clusters:** Nebius runs the orchestration, networking and storage.
+- **Serverless and managed inference (Token Factory):** sold to dev teams and individual developers, priced per token rather than per GPU-hour.
+
+Revenue isn't broken out by these tiers. GPUs are NVIDIA only (H100, H200, B200, B300, GB200 and GB300 NVL72, L40S), with Vera Rubin NVL72 to come. See [`notes/2026-10-nebius-report-draft.md`](../notes/2026-10-nebius-report-draft.md).
+
 **Equity stakes (not consolidated):** [F2 F-9, F-21]
 - **ClickHouse:** minority stake, carried at **$1,517.7M**. It was written up by $780.6M after ClickHouse's January 2026 Series D, a $400M raise Nebius did not join. That non-cash gain is the whole reason Q1 GAAP net income was positive. Ownership % is not disclosed in the 6-K.
 - **Toloka:** **minority** stake (49% voting interest since May 2025). The preferred shares are carried at $86.5M.
@@ -55,7 +62,10 @@ Source: [F2 F-33].
 **H1 2026 acquisitions:** [F2 F-9, F-25] [F1 F-30]
 - **Tavily:** search API for AI agents.
 - **ClarifAI:** core team plus a $75M patent portfolio.
-- **Eigen AI:** inference, compression and fine-tuning. Up to ~$98M cash plus ~3.8M shares.
+- **Eigen AI:** inference, model compression and fine-tuning. Closed June 10, 2026. Most of the money went to keeping the team, not buying the company: [F2 F-15/16]
+  - purchase price $331.4M: ~1.4M shares worth $298.7M plus $32.7M cash
+  - retention $549.2M: ~2.4M shares worth $508.1M plus $41.1M cash, vesting over 4 years and booked as compensation (~62% of total value)
+- **Inferize (October 2026, after the period):** cuts the time it takes to load and scale models for inference. It is being folded into Token Factory. Terms weren't disclosed; press estimates $100–150M. [S]
 
 Together these added **$605.6M of goodwill**. Nebius is buying software and inference talent to move up the stack from bare-metal GPU rental.
 
@@ -198,6 +208,21 @@ All of it belongs to the AI cloud segment. The shift toward near-term recognitio
 | Long-lived assets in the US | $9.0B of $15.0B total | [F2 F-34] |
 | Capex supplier concentration | three suppliers | [F2 F-17] |
 
+**The author's MW pipeline, by stage and site [N]:** *(estimates, October 2026; not disclosed by the company; see the [review](../notes/2026-10-report-review.md))*
+
+| Stage | Estimate | Detail |
+|---|---|---|
+| Active (earning revenue) | **200–275 MW** | Vineland NJ 100–150; Mäntsälä FI 75; London, Iceland, Israel, Paris, Kansas City and Minnesota 45–50 combined |
+| Connected (powered, not yet billing) | 0–50 MW | Turns into active within months, so it never piles up. **This is not the company's definition**: its 0.8–1.0 GW "connected" target also includes capacity the author counts as active or under construction |
+| Under construction | **~1 GW** (0.8–1.3) | 0.3–0.6 GW finishing by YE26 (leased sites plus Birmingham phase 1); 0.5–0.8 GW for 2027 (first phases of Missouri and Pennsylvania, plus Meta's second deal) |
+| Contracted, not started | 3.1–3.8 GW of the 5 GW target | Pennsylvania construction isn't confirmed |
+| Contracted by site | **~4.05 GW** | US owned 2.7 GW (Missouri up to 1.2 GW, likely ~0.8; Pennsylvania 1.2; Birmingham 0.3). US leased 0.47 GW (Vineland 300, Oklahoma 100+, Kansas City 40, Minnesota ~31 MW). Europe 0.8 GW (Lappeenranta 310, Béthune 240, Finland 145, UK 65, Estonia 22, Spain 18 MW). Israel 0.08 GW (Beit Shemesh 58, Masmiyya 22 MW) |
+
+About 94% of contracted capacity hasn't come online yet. Site risks to watch:
+- **Birmingham:** a Humane Society lawsuit challenges the substation and switching station, even though the city says no zoning approval was needed. [S]
+- **Béthune:** the first phase missed its summer target, per the author. [N]
+- **Vineland:** the 250 MW Bloom fuel cell installation. [F1 F-30]
+
 ---
 
 ## 7. Pricing power and the software layer
@@ -255,7 +280,7 @@ Non-GPU resources went up more:
 - **Market reaction:** NBIS jumped ~9–11% on the announcement (Thursday, September 17).
 - **Live price discovery:**
   - Nebius's first capacity auction cleared **15% above the highest price it had ever charged** for Blackwell-generation chips, and ~20% above Blackwell pipeline pricing.
-  - Short-duration premium contracts are pricing at **$40–50M per MW**, vs. **$20–25M per MW** on core long-term deals.
+  - Short-duration premium contracts are pricing at **$40–50M per MW**, vs. **$20–25M per MW** on core 1–3 year deals (see §7.3).
   - CEO Arkady Volozh said the company could "sell today our entire 2027 capacity" at current terms.
   - The Q2 group adjusted EBITDA margin was 41%, matching the filing's $236.2M on $582.3M. [F2 F-33]
 
@@ -269,7 +294,39 @@ Non-GPU resources went up more:
 **Sizing (derived, with caveats):**
 - **The increase mostly affects on-demand revenue.** Most revenue sits in long-term contracts with fixed pricing (the $37.5B RPO). The ~+20% list increase therefore lands mainly on the on-demand and short-term slice, which the filings don't disclose separately.
 - **Margins benefit almost fully.** A price increase on hardware that's already deployed carries close to 100% incremental margin. Even a modest on-demand share could lift the AI cloud segment's 50% adjusted EBITDA margin. [F2 F-33]
-- **Short-term pricing will show up in new contracts.** Premium short-duration deals at $40–50M per MW are 2x the core deals. A rising share of them should appear as RPO growing faster than contracted MW.
+- **Short-term pricing will show up in new contracts.** Premium short-duration deals at $40–50M per MW are 2x the 1–3 year deals. A rising share of them should appear as RPO growing faster than contracted MW.
+
+### 7.3 Pricing per MW by contract length [N]
+
+| Contract type | Annual revenue per MW | Notes |
+|---|---|---|
+| Short-term / premium | ~$40M (up to $40–50M) | Auctions cleared above list price [N] [S] |
+| Mid-term (1–3 years) | **$20–25M** | Q2 2026 floor; roughly 2x 2026 base pricing. Nebius is holding back 2027 capacity, expecting higher prices [N] |
+| Long-term (5 years, hyperscaler) | ~$12M | Cross-check: Microsoft's $17.4–19.4B over 5 years on ~300 MW at Vineland is **$11.6–12.9M per MW per year** *(derived)* [S] [N] |
+
+**Correction:** an earlier version of this note guessed that "$ per MW" meant total contract value. The Microsoft cross-check shows it is **annual revenue per MW**.
+
+**Open question for Q3:** even the 5-year tier is above the ~$7–11M of ARR per *connected* MW implied by 2026 guidance ($7–9B on 0.8–1.0 GW). One of three things explains it:
+- guidance is conservative
+- prices are quoted per IT MW rather than per grid MW (a PUE of 1.2–1.3 closes most of the gap)
+- part of the connected capacity isn't billing yet
+
+The scenario model uses the guidance-implied figure, so it's conservative if the tier prices are the right basis.
+
+### 7.4 GPU unit economics: does the chip earn its keep? [N]
+
+Per GPU, per year, at 70% utilization. Server costs: H100 ~$285K and B200 ~$450K per 8-GPU server. Power is at $0.08/kWh. Debt service is at the secured-facility rate (SOFR 3.88% + 2.50% ≈ 6.4%) [F2 F-34].
+
+| | H100 (paid off) | B200 (new, debt-financed) |
+|---|---|---|
+| Price per GPU-hour assumed | $2.77 | $4.20 |
+| Revenue at 70% utilization | ~$17.0K | **~$25.8K** *(corrected from $36.8K, which assumed 100%)* |
+| Power and operations | ~$2.0K | ~$2.8K |
+| Debt service | — | ~$14.8K |
+| **Net per year** | **~$15K** | **~$8.2K** |
+| Break-even utilization | — | ~48% |
+
+While the debt is outstanding, a paid-off older GPU out-earns a new financed one. On top of that, software gains (compression, batching, speculative decoding: Eigen AI, Inferize) raise tokens per second on older chips every year. Together that sets a floor under older GPUs' economic life and supports a longer depreciation schedule. Full detail and open items are in the [review](../notes/2026-10-report-review.md).
 
 ---
 
@@ -280,7 +337,7 @@ Non-GPU resources went up more:
 3. **A wave of capacity is about to go live.** $7.8B of equipment is installed or awaiting installation. [F2]
 4. **NVIDIA is a shareholder.** It bought $2B of warrants in March 2026. [F2]
 5. **Hidden assets.** ClickHouse ($1.5B book value at the last round mark), Toloka and Avride sit outside the AI-cloud multiple.
-6. **Pricing power.** Two on-demand price increases this year (B300 ~+56% year to date), and an auction that cleared above the highest price ever charged. Premium short-term deals at $40–50M per MW, ~2x core deals. [N] [S]
+6. **Pricing power.** Two on-demand price increases this year (B300 ~+56% year to date), and an auction that cleared above the highest price ever charged. Premium short-term deals at $40–50M per MW, ~2x 1–3 year deals. [N] [S]
 7. **Moving up the stack.** H1 acquisitions in inference, orchestration and agent search are the start of the software layer that turns renters into sticky customers. [N] [F2]
 
 ## 9. Bear case
@@ -292,6 +349,7 @@ Non-GPU resources went up more:
 5. **Fixed commitments.** ~$540M per year in power obligations, plus Bloom, whether or not GPUs are rented. [F2] [F1]
 6. **Avride burns cash.** –$40M adjusted EBITDA per quarter on $1M of revenue, partly funded by outside SAFEs ($178M liability). [F2 F-18, F-33]
 7. **Scarcity rent, not pricing power.** Price increases are the easy revenue, and a competitor with spare capacity can undercut them. The first real test is whether H100 rates hold once B300 and Rubin capacity arrives at scale. [N]
+8. **Site execution.** About 94% of contracted MW isn't live yet. Specific risks: the Birmingham lawsuit, Béthune permitting, and Pennsylvania construction not yet confirmed. [N] [S]
 
 ---
 
@@ -321,6 +379,8 @@ Non-GPU resources went up more:
 | 9 | Third on-demand price increase, or a shift to auctions and short-term deals | Is list price still trailing the market? [N] |
 | 10 | H100 on-demand rate as Blackwell and Rubin capacity lands | Pricing power vs. scarcity rent [N] |
 | 11 | Any disclosure of software or platform revenue (inference, agents, Tavily) | The test of the §7 thesis [N] |
+| 12 | Basis of "$ per MW" (IT vs. grid MW) and ARR per connected MW | Reconciles the pricing tiers with guidance (§7.3) |
+| 13 | Active MW and site milestones (Birmingham, Béthune, Vineland Bloom) | Tracks the author's pipeline (§6) |
 
 ---
 
@@ -340,7 +400,7 @@ Non-GPU resources went up more:
   - [TIKR on the Meta deal](https://www.tikr.com/blog/nebius-nbis-stock-rallies-15-after-12-billion-usd-meta-infrastructure-deal)
   - [24/7 Wall St. (2026-10-01)](https://247wallst.com/investing/2026/10/01/just-how-exposed-is-nebius-at-235/)
 
-- **[N]** Author's running notes, `Nebius.MD` (thesis added 2026-09-20; pricing logged 2026-09-22). Its figures for the October 1 price increase match these press reports:
+- **[N]** Author's notes: [`notes/2026-10-nebius-report-draft.md`](../notes/2026-10-nebius-report-draft.md) (reviewed in [`notes/2026-10-report-review.md`](../notes/2026-10-report-review.md)) and the earlier running notes, `Nebius.MD` (thesis added 2026-09-20; pricing logged 2026-09-22). Its figures for the October 1 price increase match these press reports:
   - [Silicon UK](https://www.silicon.co.uk/cloud/ai/nebius-prices-ai-631634)
   - [FourWeekMBA](https://fourweekmba.com/ai-nebius-lifts-on-demand-gpu-prices-up-to-21-from-1-october/)
   - [Spheron](https://www.spheron.network/blog/nebius-gpu-price-hike-2026-h100-to-b300-rates-rise-up-to-21/)

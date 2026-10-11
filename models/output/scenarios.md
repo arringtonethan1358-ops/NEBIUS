@@ -6,14 +6,14 @@
 
 ## Assumptions
 
-| | Bear | Base | Bull |
-|---|---|---|---|
-| Connected GW, end of 2026 | 0.8 | 0.9 | 1.0 |
-| Connected GW, end of 2027 | 1.5 | 1.9 | 2.2 |
-| Year-end ARR per connected MW ($M) | 7.5 | 8.5 | 9.5 |
-| AI cloud adj. EBITDA margin by Q4 2027 | 45% | 52% | 57% |
-| 2027 capex per MW added ($M) | 32 | 30 | 28 |
-| Share of capex funded by prepayments | 35% | 50% | 55% |
+|  | Bear | Base | Bull | Author's pipeline |
+|---|---|---|---|---|
+| Live GW at end of 2026 (company 'connected' basis) | 0.80 | 0.90 | 1.00 | 0.70 |
+| Live GW at end of 2027 | 1.50 | 1.90 | 2.20 | 1.35 |
+| Year-end ARR per connected MW ($M) | 7.5 | 8.5 | 9.5 | 8.5 |
+| AI cloud adj. EBITDA margin by Q4 2027 | 45% | 52% | 57% | 52% |
+| 2027 capex per MW added ($M) | 60 | 55 | 50 | 55 |
+| Share of capex funded by prepayments | 35% | 50% | 55% | 50% |
 
 Shared assumptions: 2026 capex at the guidance midpoint ($22.50B); 40% of the H2 2026 ARR increase lands by September; Avride and TripleTen held at Q2 2026 run-rates. Quarterly revenue = average of opening and closing ARR / 4, scaled by the Q2 2026 ratio of AI revenue to ARR.
 
@@ -21,37 +21,60 @@ Shared assumptions: 2026 capex at the guidance midpoint ($22.50B); 40% of the H2
 
 ## Results
 
-| | Bear | Base | Bull |
-|---|---|---|---|
-| **2026** group revenue | $3.04B | $3.39B | $3.78B |
-| 2026 year-end ARR | $6.00B | $7.65B | $9.50B |
-| 2026 group adj. EBITDA (margin) | $1.26B (41%) | $1.47B (43%) | $1.70B (45%) |
-| 2026 capex | $22.50B | $22.50B | $22.50B |
-| 2026 funding gap (capex − prepayments − EBITDA) | $11.82B | $9.45B | $8.50B |
-| **2027** group revenue | $8.13B | $11.20B | $14.30B |
-| 2027 year-end ARR | $11.25B | $16.15B | $20.90B |
-| 2027 group adj. EBITDA (margin) | $3.53B (43%) | $5.56B (50%) | $7.71B (54%) |
-| 2027 capex | $22.40B | $30.00B | $33.60B |
-| 2027 prepayments | $7.84B | $15.00B | $18.48B |
-| 2027 funding gap | $11.03B | $9.44B | $7.41B |
+|  | Bear | Base | Bull | Author's pipeline |
+|---|---|---|---|---|
+| **2026** group revenue | $3.04B | $3.39B | $3.78B | $3.03B |
+| 2026 year-end ARR | $6.00B | $7.65B | $9.50B | $5.95B |
+| 2026 group adj. EBITDA (margin) | $1.26B (41%) | $1.47B (43%) | $1.70B (45%) | $1.29B (43%) |
+| 2026 capex | $22.50B | $22.50B | $22.50B | $22.50B |
+| 2026 funding gap (capex − prepayments − EBITDA) | $11.82B | $9.45B | $8.50B | $9.63B |
+| **2027** group revenue | $8.13B | $11.20B | $14.30B | $8.21B |
+| 2027 year-end ARR | $11.25B | $16.15B | $20.90B | $11.48B |
+| 2027 group adj. EBITDA (margin) | $3.53B (43%) | $5.56B (50%) | $7.71B (54%) | $4.01B (49%) |
+| 2027 capex | $42.00B | $55.00B | $60.00B | $35.75B |
+| 2027 prepayments | $14.70B | $27.50B | $33.00B | $17.88B |
+| 2027 funding gap | $23.77B | $21.94B | $19.29B | $13.86B |
 
 ### 2026 guidance check
 
-| | Bear | Base | Bull | Guidance |
-|---|---|---|---|---|
-| Revenue | $3.04B | $3.39B | $3.78B | $3.00B–$3.40B |
-| Year-end ARR | $6.00B | $7.65B | $9.50B | $7–9B |
-| Adj. EBITDA margin | 41% | 43% | 45% | ~40% |
+|  | Bear | Base | Bull | Author's pipeline | Guidance |
+|---|---|---|---|---|---|
+| Revenue | $3.04B | $3.39B | $3.78B | $3.03B | $3.00B–$3.40B |
+| Year-end ARR | $6.00B | $7.65B | $9.50B | $5.95B | $7–9B |
+| Adj. EBITDA margin | 41% | 43% | 45% | 43% | ~40% |
 
 ### What the 2027 funding gap means in shares
 
 New shares needed to fund the 2027 gap entirely with equity (in millions), at different share prices. For scale: 271.9M shares were outstanding on June 30, 2026, plus 21.1M NVIDIA pre-funded warrants. In practice part of the gap is funded with debt and convertibles, and the ~$9.1B of cash and restricted cash on hand (June 30, 2026) absorbs some of it first.
 
-| Share price | Bear | Base | Bull |
-|---|---|---|---|
-| $150 | 74M | 63M | 49M |
-| $225 | 49M | 42M | 33M |
-| $300 | 37M | 31M | 25M |
+| Share price | Bear | Base | Bull | Author's pipeline |
+|---|---|---|---|---|
+| $150 | 158M | 146M | 129M | 92M |
+| $225 | 106M | 98M | 86M | 62M |
+| $300 | 79M | 73M | 64M | 46M |
+
+## Valuation at the current share price
+
+Share price **$221.33** (2026-10-09 close). Balance sheet as of June 30, 2026, pro forma for the July secured facility and the August converts and note exchange, ignoring Q3 cash burn. The two EV methods bracket how to treat the in-the-money converts:
+
+| | Low EV | High EV |
+|---|---|---|
+| Converts treated as | debt at accreted principal; exchange shares counted | debt at June 30 fair value (includes conversion value) |
+| Shares (M, incl. NVIDIA warrants) | 308.7 | 292.9 |
+| Equity value | $68.33B | $64.83B |
+| + Debt | $15.02B | $26.60B |
+| − Cash (pro forma) | $14.81B | $14.81B |
+| **Enterprise value** | **$68.53B** | **$76.62B** |
+
+**Implied multiples (low–high EV):**
+
+|  | Bear | Base | Bull | Author's pipeline |
+|---|---|---|---|---|
+| EV / 2026 year-end ARR | 11.4–12.8x | 9.0–10.0x | 7.2–8.1x | 11.5–12.9x |
+| EV / 2027 year-end ARR | 6.1–6.8x | 4.2–4.7x | 3.3–3.7x | 6.0–6.7x |
+| EV / 2027 adj. EBITDA | 19.4–21.7x | 12.3–13.8x | 8.9–9.9x | 17.1–19.1x |
+
+For reference, CoreWeave's EV is roughly $80–93B: a ~$45B market cap plus ~$35B of debt and leases as of Q1, before cash; one data provider's EV/EBITDA implies ~$93B. Against its $18.5–19.5B year-end 2026 ARR target, that is **~4–5x EV / 2026 ARR**. All CoreWeave figures are secondary; see `research/peer-comparison.md`.
 
 ## ARR paths
 
@@ -65,10 +88,10 @@ New shares needed to fund the 2027 gap entirely with equity (in millions), at di
 |---|---|---|---|---|---|---|---|
 | 2026-Q3 | 4.20 | 852 | 49% | 364 | 7,185 | 2,515 | 4,306 |
 | 2026-Q4 | 6.00 | 1,204 | 48% | 526 | 7,185 | 2,515 | 4,144 |
-| 2027-Q1 | 7.31 | 1,569 | 47% | 690 | 5,600 | 1,960 | 2,950 |
-| 2027-Q2 | 8.62 | 1,877 | 47% | 821 | 5,600 | 1,960 | 2,819 |
-| 2027-Q3 | 9.94 | 2,185 | 46% | 948 | 5,600 | 1,960 | 2,692 |
-| 2027-Q4 | 11.25 | 2,493 | 45% | 1,069 | 5,600 | 1,960 | 2,571 |
+| 2027-Q1 | 7.31 | 1,569 | 47% | 690 | 10,500 | 3,675 | 6,135 |
+| 2027-Q2 | 8.62 | 1,877 | 47% | 821 | 10,500 | 3,675 | 6,004 |
+| 2027-Q3 | 9.94 | 2,185 | 46% | 948 | 10,500 | 3,675 | 5,877 |
+| 2027-Q4 | 11.25 | 2,493 | 45% | 1,069 | 10,500 | 3,675 | 5,756 |
 
 **Base**
 
@@ -76,10 +99,10 @@ New shares needed to fund the 2027 gap entirely with equity (in millions), at di
 |---|---|---|---|---|---|---|---|
 | 2026-Q3 | 4.86 | 930 | 50% | 412 | 7,185 | 3,592 | 3,180 |
 | 2026-Q4 | 7.65 | 1,475 | 50% | 691 | 7,185 | 3,592 | 2,901 |
-| 2027-Q1 | 9.78 | 2,052 | 51% | 990 | 7,500 | 3,750 | 2,760 |
-| 2027-Q2 | 11.90 | 2,550 | 51% | 1,253 | 7,500 | 3,750 | 2,497 |
-| 2027-Q3 | 14.02 | 3,049 | 52% | 1,520 | 7,500 | 3,750 | 2,230 |
-| 2027-Q4 | 16.15 | 3,548 | 52% | 1,791 | 7,500 | 3,750 | 1,959 |
+| 2027-Q1 | 9.78 | 2,052 | 51% | 990 | 13,750 | 6,875 | 5,885 |
+| 2027-Q2 | 11.90 | 2,550 | 51% | 1,253 | 13,750 | 6,875 | 5,622 |
+| 2027-Q3 | 14.02 | 3,049 | 52% | 1,520 | 13,750 | 6,875 | 5,355 |
+| 2027-Q4 | 16.15 | 3,548 | 52% | 1,791 | 13,750 | 6,875 | 5,084 |
 
 **Bull**
 
@@ -87,7 +110,18 @@ New shares needed to fund the 2027 gap entirely with equity (in millions), at di
 |---|---|---|---|---|---|---|---|
 | 2026-Q3 | 5.60 | 1,016 | 51% | 464 | 7,185 | 3,952 | 2,769 |
 | 2026-Q4 | 9.50 | 1,779 | 52% | 874 | 7,185 | 3,952 | 2,359 |
-| 2027-Q1 | 12.35 | 2,571 | 53% | 1,318 | 8,400 | 4,620 | 2,462 |
-| 2027-Q2 | 15.20 | 3,240 | 55% | 1,714 | 8,400 | 4,620 | 2,066 |
-| 2027-Q3 | 18.05 | 3,909 | 56% | 2,127 | 8,400 | 4,620 | 1,653 |
-| 2027-Q4 | 20.90 | 4,577 | 57% | 2,555 | 8,400 | 4,620 | 1,225 |
+| 2027-Q1 | 12.35 | 2,571 | 53% | 1,318 | 15,000 | 8,250 | 5,432 |
+| 2027-Q2 | 15.20 | 3,240 | 55% | 1,714 | 15,000 | 8,250 | 5,036 |
+| 2027-Q3 | 18.05 | 3,909 | 56% | 2,127 | 15,000 | 8,250 | 4,623 |
+| 2027-Q4 | 20.90 | 4,577 | 57% | 2,555 | 15,000 | 8,250 | 4,195 |
+
+**Author's pipeline**
+
+| Quarter | ARR end ($B) | Group revenue | AI margin | Group adj. EBITDA | Capex | Prepayments | Funding gap |
+|---|---|---|---|---|---|---|---|
+| 2026-Q3 | 4.18 | 850 | 50% | 372 | 7,185 | 3,592 | 3,220 |
+| 2026-Q4 | 5.95 | 1,196 | 50% | 550 | 7,185 | 3,592 | 3,042 |
+| 2027-Q1 | 7.33 | 1,566 | 51% | 743 | 8,938 | 4,469 | 3,726 |
+| 2027-Q2 | 8.71 | 1,890 | 51% | 915 | 8,938 | 4,469 | 3,554 |
+| 2027-Q3 | 10.09 | 2,214 | 52% | 1,089 | 8,938 | 4,469 | 3,379 |
+| 2027-Q4 | 11.48 | 2,538 | 52% | 1,266 | 8,938 | 4,469 | 3,202 |

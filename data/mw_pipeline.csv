@@ -1,0 +1,6 @@
+stage,order,low_mw,high_mw,mid_mw,source_quality,source,notes
+Active,1,200,275,240,author_notes,notes/2026-10-nebius-report-draft.md,Earning revenue today
+Connected,2,0,50,25,author_notes,notes/2026-10-nebius-report-draft.md,Powered but not yet billing; author's definition
+Under construction,3,800,1300,1000,author_notes,notes/2026-10-nebius-report-draft.md,0.3-0.6 GW finishing by YE26; 0.5-0.8 GW for 2027
+Contracted,4,4050,4050,4050,author_notes,notes/2026-10-nebius-report-draft.md,Sum of contracted sites
+Year-end 2026 target,5,5000,5000,5000,primary_linked,https://assets.nebius.com/assets/4462517b-ce83-41f2-96ed-f2ac1bc06a05/SHLQ226%20(1).pdf-0,Company's contracted power target
