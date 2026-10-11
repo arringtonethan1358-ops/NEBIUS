@@ -28,7 +28,7 @@
 
 - 
 
-## Thesis check (see `research/nebius-initiation.md` §9)
+## Thesis check (see "What to watch" in `research/nebius-initiation.md`)
 
 | Watch item | Result | Thesis impact |
 |---|---|---|
