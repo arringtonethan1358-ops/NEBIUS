@@ -15,3 +15,15 @@ jobs:
           python-version: "3.12"
       - name: Validate KPI dataset
         run: python scripts/validate_kpis.py data/nebius_kpis.csv
+
+  model:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Re-run the scenario model
+        run: python models/nebius_scenarios.py
+      - name: Fail if committed model output is stale
+        run: git diff --exit-code models/output || (echo "Model output is out of date. Run 'python models/nebius_scenarios.py' and commit models/output." && exit 1)

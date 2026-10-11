@@ -301,6 +301,8 @@ Non-GPU resources went up more:
 - **EV / year-end ARR:** compare against the $7–9B guidance and against peers such as CoreWeave.
 - **EV / 2027E adjusted EBITDA:** ~40% group margin on the 2027 revenue run-rate.
 - **Sum of the parts:** AI cloud + ClickHouse ($1.52B carrying value) + Toloka ($86.5M) + Avride (last round) + TripleTen.
+- **Scenario model:** [`models/output/scenarios.md`](../models/output/scenarios.md) has bear, base and bull paths for ARR, revenue, EBITDA, capex and the 2027 funding gap. Plug its 2027 EBITDA into the multiple above.
+- **Peers:** [`research/peer-comparison.md`](peer-comparison.md) compares Nebius with CoreWeave and IREN on growth, backlog, capex intensity and funding.
 
 ---
 
