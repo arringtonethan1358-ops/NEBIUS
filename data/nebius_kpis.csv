@@ -1,0 +1,71 @@
+period,metric,value,unit,source_quality,source,notes
+2025-Q2,group_revenue,105.1,USD_mn,filing,Q2-2026 6-K Ex99.2 F-3,
+2025-Q2,ai_revenue,93.7,USD_mn,filing,Q2-2026 6-K Ex99.2 F-33,
+2025-Q2,ai_adj_ebitda,9.5,USD_mn,filing,Q2-2026 6-K Ex99.2 F-33,
+2025-Q2,group_adj_ebitda,-21.0,USD_mn,filing,Q2-2026 6-K Ex99.2 F-33,
+2025-Q4,ai_arr,1.25,USD_bn,secondary,https://www.tikr.com/blog/nbis-has-gained-167-in-2026-the-revenue-chart-explains-why,Company metric
+2025-Q4,active_power,170,MW,primary_linked,https://assets.nebius.com/assets/e59fb92e-9027-473a-8cac-04f9d2e9ea9a/Shareholder%20Letter%20Q4%202025.pdf,Approximate
+2025-Q4,cash_and_equivalents,3678.1,USD_mn,filing,Q2-2026 6-K Ex99.2 F-2,Dec 31 2025
+2025-Q4,deferred_revenue_total,1577.5,USD_mn,filing,Q2-2026 6-K Ex99.2 F-19,
+2025-Q4,convertible_debt_carrying,4103.2,USD_mn,filing,Q2-2026 6-K Ex99.2 F-28,
+2026-Q1,group_revenue,399.0,USD_mn,filing_derived,Q2-2026 6-K Ex99.2 F-3,H1 981.3 - Q2 582.3
+2026-Q1,ai_revenue,389.7,USD_mn,filing_derived,Q2-2026 6-K Ex99.2 F-33,H1 - Q2
+2026-Q1,ai_adj_ebitda,174.0,USD_mn,filing_derived,Q2-2026 6-K Ex99.2 F-33,H1 - Q2; 44.6% margin
+2026-Q1,group_adj_ebitda,129.5,USD_mn,filing_derived,Q2-2026 6-K Ex99.2 F-33,H1 - Q2; 32.5% margin
+2026-Q1,depreciation_amortization,212.0,USD_mn,filing_derived,Q2-2026 6-K Ex99.2 F-3,H1 - Q2
+2026-Q1,loss_from_operations,-128.0,USD_mn,filing_derived,Q2-2026 6-K Ex99.2 F-3,H1 - Q2
+2026-Q1,net_income,621.2,USD_mn,filing,Q1-2026 6-K Ex99.2 cash flow statement,Includes 780.6 ClickHouse revaluation gain
+2026-Q1,sbc,35.3,USD_mn,filing,Q1-2026 6-K Ex99.2 cash flow statement,
+2026-Q1,operating_cash_flow,2258.0,USD_mn,filing,Q1-2026 6-K Ex99.2 cash flow statement,
+2026-Q1,deferred_revenue_change_cf,3198.0,USD_mn,filing,Q1-2026 6-K Ex99.2 cash flow statement,
+2026-Q1,capex,2472.9,USD_mn,filing,Q1-2026 6-K Ex99.2 cash flow statement,Purchases of PP&E and intangibles
+2026-Q1,cash_and_equivalents,9298.2,USD_mn,filing,Q1-2026 6-K Ex99.2 balance sheet,
+2026-Q1,deferred_revenue_total,4778.1,USD_mn,filing,Q1-2026 6-K Ex99.2 balance sheet,685.6 current + 4092.5 non-current
+2026-Q1,convertible_debt_carrying,8432.0,USD_mn,filing,Q1-2026 6-K Ex99.2 balance sheet,
+2026-Q1,rpo,33585.3,USD_mn,filing,Q1-2026 6-K Ex99.2 note 4,29% within 24 months
+2026-Q1,ai_arr,1.9,USD_bn,secondary,https://www.tikr.com/blog/nbis-has-gained-167-in-2026-the-revenue-chart-explains-why,Company metric
+2026-Q2,group_revenue,582.3,USD_mn,filing,Q2-2026 6-K Ex99.2 F-3,+454% YoY
+2026-Q2,ai_revenue,574.9,USD_mn,filing,Q2-2026 6-K Ex99.2 F-33,+514% YoY
+2026-Q2,avride_revenue,1.0,USD_mn,filing,Q2-2026 6-K Ex99.2 F-33,
+2026-Q2,tripleten_revenue,10.0,USD_mn,filing,Q2-2026 6-K Ex99.2 F-33,
+2026-Q2,ai_adj_ebitda,285.7,USD_mn,filing,Q2-2026 6-K Ex99.2 F-33,49.7% margin
+2026-Q2,avride_adj_ebitda,-40.1,USD_mn,filing,Q2-2026 6-K Ex99.2 F-33,
+2026-Q2,tripleten_adj_ebitda,-9.4,USD_mn,filing,Q2-2026 6-K Ex99.2 F-33,
+2026-Q2,group_adj_ebitda,236.2,USD_mn,filing,Q2-2026 6-K Ex99.2 F-33,40.6% margin
+2026-Q2,depreciation_amortization,259.7,USD_mn,filing,Q2-2026 6-K Ex99.2 F-3,
+2026-Q2,sbc,102.5,USD_mn,filing,Q2-2026 6-K Ex99.2 F-34,
+2026-Q2,loss_from_operations,-175.9,USD_mn,filing,Q2-2026 6-K Ex99.2 F-3,
+2026-Q2,interest_expense,119.1,USD_mn,filing,Q2-2026 6-K Ex99.2 F-3,
+2026-Q2,net_income,-190.4,USD_mn,filing,Q2-2026 6-K Ex99.2 F-3,
+2026-Q2,diluted_eps,-0.68,USD,filing,Q2-2026 6-K Ex99.2 F-3,
+2026-Q2,weighted_diluted_shares,280.381615,mn_shares,filing,Q2-2026 6-K Ex99.2 F-3,
+2026-Q2,operating_cash_flow,2246.1,USD_mn,filing_derived,Q2-2026 6-K Ex99.2 F-7,H1 4504.1 - Q1 2258.0
+2026-Q2,deferred_revenue_change_cf,1197.0,USD_mn,filing_derived,Q2-2026 6-K Ex99.2 F-7,H1 4395.0 - Q1 3198.0
+2026-Q2,capex,5657.4,USD_mn,filing_derived,Q2-2026 6-K Ex99.2 F-7,H1 8130.3 - Q1 2472.9
+2026-Q2,free_cash_flow,-3411.3,USD_mn,filing_derived,Q2-2026 6-K Ex99.2 F-7,OCF - capex
+2026-Q2,cash_and_equivalents,8042.1,USD_mn,filing,Q2-2026 6-K Ex99.2 F-2,
+2026-Q2,restricted_cash,1056.0,USD_mn,filing,Q2-2026 6-K Ex99.2 F-18,830.3 current + 225.7 non-current
+2026-Q2,ppe_net,13045.2,USD_mn,filing,Q2-2026 6-K Ex99.2 F-2,
+2026-Q2,assets_not_yet_in_use,7836.4,USD_mn,filing,Q2-2026 6-K Ex99.2 F-23,Gross PP&E 14149.5
+2026-Q2,deferred_revenue_total,5975.2,USD_mn,filing,Q2-2026 6-K Ex99.2 F-19,
+2026-Q2,convertible_debt_carrying,8499.0,USD_mn,filing,Q2-2026 6-K Ex99.2 F-28,
+2026-Q2,convertible_debt_accreted_principal,10041.8,USD_mn,filing,Q2-2026 6-K Ex99.2 F-28,Payable at maturity
+2026-Q2,convertible_debt_fair_value,20823.7,USD_mn,filing,Q2-2026 6-K Ex99.2 F-29,Level 3
+2026-Q2,total_equity,10340.5,USD_mn,filing,Q2-2026 6-K Ex99.2 F-2,
+2026-Q2,shares_outstanding_a_b,271.855218,mn_shares,filing,Q2-2026 6-K Ex99.2 F-5,Excludes 21.07M NVIDIA pre-funded warrants
+2026-Q2,nvidia_prefunded_warrants,21.065936,mn_shares,filing,Q2-2026 6-K Ex99.2 F-31,$2000M gross; exercise $0.0001
+2026-Q2,atm_shares_sold,12.729493,mn_shares,filing,Q2-2026 6-K Ex99.2 F-32,Avg $223.60; net $2811.1M; 12.27M remaining
+2026-Q2,rpo,37490.6,USD_mn,filing,Q2-2026 6-K Ex99.2 F-19,36% within 24 months; 40% months 25-48
+2026-Q2,customer_c_revenue_share,24,pct,filing,Q2-2026 6-K Ex99.2 F-17,Unnamed
+2026-Q2,customer_d_revenue_share,21,pct,filing,Q2-2026 6-K Ex99.2 F-17,Unnamed
+2026-Q2,customer_e_revenue_share,14,pct,filing,Q2-2026 6-K Ex99.2 F-17,Unnamed
+2026-Q2,clickhouse_carrying_value,1517.7,USD_mn,filing,Q2-2026 6-K Ex99.2 F-21,Remeasured after Jan 2026 Series D
+2026-Q2,goodwill,605.6,USD_mn,filing,Q2-2026 6-K Ex99.2 F-2,"Tavily, ClarifAI, Eigen AI"
+2026-Q2,ai_arr,3.0,USD_bn,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,Company metric; end of June
+2026-FY-guide,group_revenue,3.0-3.4,USD_bn,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,Reaffirmed Aug 2026
+2026-FY-guide,ai_arr_year_end,7-9,USD_bn,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,Reaffirmed Aug 2026
+2026-FY-guide,group_adj_ebitda_margin,40,pct,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,Approximately
+2026-FY-guide,capex,20-25,USD_bn,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,Raised from 16-20 in Q1
+2026-FY-guide,contracted_power_year_end,5,GW,primary_linked,https://assets.nebius.com/assets/4462517b-ce83-41f2-96ed-f2ac1bc06a05/SHLQ226%20(1).pdf-0,Raised from 4 GW
+2026-FY-guide,connected_power_year_end,0.8-1.0,GW,secondary,https://finance.yahoo.com/technology/ai/articles/nebius-group-q2-earnings-call-150444472.html,Fully active 1H 2027
+2026-FY-guide,customer_prepayments,9,USD_bn,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,>$9B expected in 2026
