@@ -69,3 +69,11 @@ period,metric,value,unit,source_quality,source,notes
 2026-FY-guide,contracted_power_year_end,5,GW,primary_linked,https://assets.nebius.com/assets/4462517b-ce83-41f2-96ed-f2ac1bc06a05/SHLQ226%20(1).pdf-0,Raised from 4 GW
 2026-FY-guide,connected_power_year_end,0.8-1.0,GW,secondary,https://finance.yahoo.com/technology/ai/articles/nebius-group-q2-earnings-call-150444472.html,Fully active 1H 2027
 2026-FY-guide,customer_prepayments,9,USD_bn,primary_linked,https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results,>$9B expected in 2026
+2026-10-01,on_demand_price_h100,4.50,USD_per_gpu_hr,secondary,https://www.silicon.co.uk/cloud/ai/nebius-prices-ai-631634,From 3.85 (~+17%); also in author notes
+2026-10-01,on_demand_price_h200,5.40,USD_per_gpu_hr,secondary,https://www.spheron.network/blog/nebius-gpu-price-hike-2026-h100-to-b300-rates-rise-up-to-21/,From 4.50 (~+20%)
+2026-10-01,on_demand_price_b200,8.50,USD_per_gpu_hr,secondary,https://www.spheron.network/blog/nebius-gpu-price-hike-2026-h100-to-b300-rates-rise-up-to-21/,From 7.15 (~+19%)
+2026-10-01,on_demand_price_b300,9.50,USD_per_gpu_hr,secondary,https://www.silicon.co.uk/cloud/ai/nebius-prices-ai-631634,From 7.85 (~+21%); ~+56% YTD from 6.09
+2026-10-01,on_demand_price_change_cpu_genoa,25,pct,secondary,https://www.silicon.co.uk/cloud/ai/nebius-prices-ai-631634,AMD EPYC Genoa CPU-only instances
+2026-10-01,on_demand_price_change_memory,41,pct,secondary,https://www.silicon.co.uk/cloud/ai/nebius-prices-ai-631634,
+2026-05,on_demand_price_change_avg,29,pct,author_notes,Nebius.MD,May 2026 round; average on on-demand capacity; unverified
+2026-09,premium_contract_value_per_mw,40-50,USD_mn_per_MW,author_notes,Nebius.MD,Short-duration premium contracts; vs 20-25 for core long-term deals; unverified

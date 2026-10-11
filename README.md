@@ -5,7 +5,7 @@ Independent research on **Nebius Group (NASDAQ: NBIS)**, the AI cloud and GPU in
 
 ## Start here
 
-- **[Initiation note](research/nebius-initiation.md):** business overview, financial trajectory, capacity build-out, funding, bull and bear cases, valuation framework, and what to watch next quarter.
+- **[Initiation note](research/nebius-initiation.md):** business overview, financial trajectory, capacity build-out, funding, pricing power and the software-layer thesis, bull and bear cases, valuation framework, and what to watch next quarter.
 
 ## Layout
 
@@ -19,7 +19,7 @@ Independent research on **Nebius Group (NASDAQ: NBIS)**, the AI cloud and GPU in
 ## Sourcing rules
 
 1. Every number gets a citation.
-2. Label each source: `filing` (6-K/20-F financial statements, with page), `filing_derived` (arithmetic on filed numbers), `primary_linked` (company release or letter), or `secondary` (press, analysts).
+2. Label each source: `filing` (6-K/20-F financial statements, with page), `filing_derived` (arithmetic on filed numbers), `primary_linked` (company release or letter), `secondary` (press, analysts), or `author_notes` (our own notes, not yet independently confirmed).
 3. Replace secondary figures with primary ones whenever possible.
 
 ---
