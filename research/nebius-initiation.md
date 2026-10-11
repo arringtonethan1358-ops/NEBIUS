@@ -326,7 +326,7 @@ Per GPU, per year, at 70% utilization. Server costs: H100 ~$285K and B200 ~$450K
 | **Net per year** | **~$15K** | **~$8.2K** |
 | Break-even utilization | — | ~48% |
 
-While the debt is outstanding, a paid-off older GPU out-earns a new financed one. On top of that, software gains (compression, batching, speculative decoding: Eigen AI, Inferize) raise tokens per second on older chips every year. Together that sets a floor under older GPUs' economic life and supports a longer depreciation schedule. Full detail and open items are in the [review](../notes/2026-10-report-review.md).
+While the debt is outstanding, a paid-off older GPU out-earns a new financed one. **Equilibrium:** a new financed B200 only matches a paid-off H100 running at 70% when it runs at **~89% utilization**, or rents for **~$5.31 an hour** at 70% *(derived)*. October's on-demand list prices ($8.50 B200, $4.50 H100) are well above that, so for now scarcity pricing keeps new chips past equilibrium. On top of that, software gains (compression, batching, speculative decoding: Eigen AI, Inferize) raise tokens per second on older chips every year. Together that sets a floor under older GPUs' economic life and supports a longer depreciation schedule. Full detail and open items are in the [review](../notes/2026-10-report-review.md).
 
 ---
 

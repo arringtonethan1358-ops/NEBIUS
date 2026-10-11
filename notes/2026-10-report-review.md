@@ -89,7 +89,26 @@ The most important confirmation is the **pricing tiers**. They make clear that "
 
 ---
 
-## Suggested next edits to the draft
+## Status (2026-10-11)
+
+These corrections and additions have been applied to the draft, marked ✎:
+- B200 math
+- Birmingham ruling and lawsuit
+- the "connected" definition note
+- the per-MW basis note
+- Eigen AI deal detail
+- the Inferize section
+- a utilization sensitivity table and the equilibrium result: a new financed B200 matches a paid-off H100 at 70% only at ~89% utilization, or ~$5.31 an hour
+
+**Still waiting on the author, marked [needs source] in the draft:**
+- the CRO quote
+- the $170B capex figure
+- the 500M share base
+- the token-cost figures
+- the NVIDIA quota claim
+- reconciling with `NBIS_5GW_Funding_Model.xlsx` (upload it to the session)
+
+## Suggested next edits to the draft (original list)
 1. Fix the B200 math (70% → $25.8K) and add a utilization sensitivity table.
 2. Source or drop the "no more hyperscaler deals" quote; correct the name to Marc Boroditsky.
 3. Replace "denied substation" with the switching-station ruling, the city memo and the pending lawsuit.
