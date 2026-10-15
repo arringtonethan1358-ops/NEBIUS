@@ -48,14 +48,15 @@ SECURED_SHARE_OF_GPU = 0.30  # new GPU loans as a share of GPU capex; investment
 SECURED_RATE = 0.0638        # SOFR 3.88% + 2.50%, the July 2026 MUFG terms
 SECURED_TERM = 5             # years; repaid in equal parts starting the year after drawing
 EXISTING_GPU_LOAN = 5.0      # 2027 loan against the ~$11B of GPUs installed by mid-2026, less the $775M used
+EXISTING_GPU_VALUE = 11.0    # GPUs and servers installed or being installed at June 30, 2026, net [Q2-2026 6-K F-23]
+LEGACY_TERM = 3              # years: those GPUs are 1-2 years into a 5-year life, so a shorter loan
 MIN_CASH = 10.0              # floor on year-end cash
 EQUITY_SHARE_OF_RAISE = 0.50 # equity (ATM) share of the money raised from investors; the rest is converts
 ATM_COST = 0.0125            # ATM commission
 NEW_CONVERT_COUPON = 0.025   # coupon on new converts (recent deals: 0.50%-4.50%)
+NEW_CONVERT_TERM = 5         # years to maturity for new converts
 MUFG_LOAN = 0.775            # existing secured loan, repaid in cash October 2030
-AUG_2030_CONVERTS = 3.45 * 1.10  # 0.50% notes due Aug 2030 at maturity (conversion price $313.46, above today's
-                                 # share price): repaid in cash; accreted per the $344.81 effective conversion price
-SEP_2030_CONVERTS = 1.58125      # 1.00% notes due Sep 2030 convert at $138.75: shares, no cash
+AUG_2030_ACCRETION = 344.81 / 313.46  # 0.50% notes due Aug 2030 repay ~110% (effective vs. initial conversion price)
 SHARES_YE26 = 308.7          # M: Class A + B, NVIDIA warrants and the August exchange shares
 
 PERIODS = [("2025", "2025-01-01", "2025-12-31"), ("H1 2026", "2026-01-01", "2026-06-30"),
@@ -252,64 +253,222 @@ def write(rows):
     return t, out, prow, mix, rp
 
 
+def debt_ledger(out):
+    """Existing debt at year-end 2026, one entry per instrument."""
+    price = scen.VALUATION["price"]
+    led = [{"name": "MUFG secured loan (SOFR + 2.50%)", "kind": "secured_existing", "amount": MUFG_LOAN, "drawn": 2026,
+            "rate": SECURED_RATE, "bullet": 2030, "cash_at_maturity": MUFG_LOAN}]
+    for sr in out:
+        if sr["kind"] != "convertible":
+            continue
+        year = int(sr["maturity"][:4])
+        converts = sr["conversion_price"] < price                     # in the money today -> shares
+        accreted = sr["accreted"] / 1000 if sr["accreted"] else sr["principal"] / 1000 * (
+            AUG_2030_ACCRETION if sr["series"].startswith("0.50%") else 1.0)
+        led.append({"name": f"Convert, {sr['series']}", "kind": "convert_existing", "amount": sr["principal"] / 1000,
+                    "drawn": 2025, "rate": sr["coupon"], "bullet": year, "conversion_price": sr["conversion_price"],
+                    "cash_at_maturity": 0.0 if converts else accreted, "settles": "shares" if converts else "cash"})
+    return led
+
+
+def balance(d, y):
+    """Principal outstanding at the end of year y."""
+    if y < d["drawn"]:
+        return 0.0
+    if "term" in d:                                                    # amortizing loan
+        paid = min(max(y - d["drawn"], 0), d["term"])
+        return d["amount"] * (1 - paid / d["term"])
+    return d["amount"] if y < d["bullet"] else 0.0
+
+
+def interest_in(d, y):
+    if y < d["drawn"]:
+        return 0.0
+    if y == d["drawn"]:
+        return d["amount"] * d["rate"] / 2                             # drawn mid-year
+    if "bullet" in d and y == d["bullet"]:
+        return d["amount"] * d["rate"] / 2                             # repaid or converted mid-year
+    return balance(d, y - 1) * d["rate"]
+
+
+def repaid_in(d, y):
+    """Cash principal paid in year y (conversions into shares cost no cash)."""
+    if "term" in d:
+        return d["amount"] / d["term"] if d["drawn"] < y <= d["drawn"] + d["term"] else 0.0
+    return d.get("cash_at_maturity", d["amount"]) if y == d["bullet"] else 0.0
+
+
 def revised_plan(out):
-    """Year-by-year sources and uses for 2027-2029. Equity and converts are the plug."""
+    """Year by year, 2027-2030. Equity and converts are the plug that keeps cash at the floor."""
     final = fm.steps()[-1][3]
     ebitda = fm.compute(final)["ebitda"]                    # reconciled model, $12M ARR per MW
     cash = fm.steps()[1][3]["cash_open"]                    # pro forma year-end 2026
-    existing_coupons = sum(s["coupon_cost"] for s in out if s["kind"] == "convertible") / 1000
-    existing_converts = sum(s["principal"] for s in out if s["kind"] == "convertible") / 1000
-    tranches, conv_new, leased, shares_atm, shares_conv = [], 0.0, 0.0, 0.0, 0.0
-    rows = []
+    price = scen.VALUATION["price"]
+    led = debt_ledger(out)
+    leased, rows = 0.0, []
     for i, y in enumerate(REVISED_YEARS):
         capex = CAPEX_2027_30 * PHASING[i]
-        prepay = capex * PREPAY_SHARE
-        opcash = OPCASH_SHARE * ebitda[i]
+        prepay, opcash = capex * PREPAY_SHARE, OPCASH_SHARE * ebitda[i]
         rent = leased * LEASE_RENT_YIELD
-        new_gpu_loans = SECURED_SHARE_OF_GPU * GPU_SHARE * capex
-        legacy_loan = EXISTING_GPU_LOAN if i == 0 else 0.0
-        drawn = new_gpu_loans + legacy_loan
-        sec_open = sum(a - a * min(max(y - 1 - s, 0), SECURED_TERM) / SECURED_TERM for a, s in tranches)
-        principal = sum(a / SECURED_TERM for a, s in tranches if s < y <= s + SECURED_TERM)
-        maturities = (MUFG_LOAN + AUG_2030_CONVERTS) if y == 2030 else 0.0
-        interest = ((sec_open + MUFG_LOAN) * SECURED_RATE + drawn * SECURED_RATE / 2
-                    + existing_coupons + conv_new * NEW_CONVERT_COUPON)
-        before = cash + prepay + opcash + LEASE_FUNDED + drawn - capex - rent - interest - principal - maturities
-        raised = max(0.0, MIN_CASH - before)
-        equity, converts = raised * EQUITY_SHARE_OF_RAISE, raised * (1 - EQUITY_SHARE_OF_RAISE)
-        price = scen.VALUATION["price"]
-        shares_atm += equity * 1000 / (1 - ATM_COST) / price
-        shares_conv += converts * 1000 / (price * (1 + CONVERT_PREMIUM))
-        cash = before + raised
-        tranches.append((drawn, y))
-        conv_new += converts
+        led.append({"name": f"GPU loan, {y} vintage", "kind": "secured_new", "amount": SECURED_SHARE_OF_GPU * GPU_SHARE * capex,
+                    "drawn": y, "rate": SECURED_RATE, "term": SECURED_TERM})
+        if i == 0 and EXISTING_GPU_LOAN:
+            led.append({"name": "Loan on GPUs already installed", "kind": "secured_legacy", "amount": EXISTING_GPU_LOAN,
+                        "drawn": y, "rate": SECURED_RATE, "term": LEGACY_TERM})
+        drawn = sum(d["amount"] for d in led if d["drawn"] == y)
+        interest = sum(interest_in(d, y) for d in led)
+        repaid = sum(repaid_in(d, y) for d in led)
+        before = cash + prepay + opcash + LEASE_FUNDED + drawn - capex - rent - interest - repaid
+        # New converts pay half a year's coupon in the year they're issued, so solve for the raise that
+        # still leaves cash exactly at the floor.
+        conv_share = 1 - EQUITY_SHARE_OF_RAISE
+        raised = max(0.0, (MIN_CASH - before) / (1 - conv_share * NEW_CONVERT_COUPON / 2))
+        equity, converts = raised * EQUITY_SHARE_OF_RAISE, raised * conv_share
+        if converts:
+            conv = {"name": f"Convert, {y} issue", "kind": "convert_new", "amount": converts, "drawn": y,
+                    "rate": NEW_CONVERT_COUPON, "bullet": y + NEW_CONVERT_TERM,
+                    "conversion_price": price * (1 + CONVERT_PREMIUM)}
+            led.append(conv)
+            interest += interest_in(conv, y)
+        cash = before + raised - (interest_in(conv, y) if converts else 0.0)
         leased += LEASE_FUNDED
-        sec_close = sec_open + drawn - principal
+        atm_gross = equity / (1 - ATM_COST)
         rows.append({
-            "year": y, "capex": capex, "prepay": prepay, "opcash": opcash, "lease": LEASE_FUNDED,
-            "gpu_loans": new_gpu_loans, "legacy_loan": legacy_loan, "equity": equity, "converts": converts,
-            "interest": interest, "principal": principal, "rent": rent, "cash": cash, "ebitda": ebitda[i],
-            "secured_close": sec_close + (MUFG_LOAN if y < 2030 else 0.0), "leased": leased, "maturities": maturities,
-            "converts_close": existing_converts + conv_new - (0.1 if y >= 2029 else 0.0)        # Jun 2029 notes convert
-                              - (3.45 + SEP_2030_CONVERTS if y >= 2030 else 0.0),            # Aug repaid, Sep converts
-            "shares_atm": shares_atm, "shares_conv": shares_conv,
+            "year": y, "capex": capex, "prepay": prepay, "opcash": opcash, "lease": LEASE_FUNDED, "rent": rent,
+            "gpu_loans": sum(d["amount"] for d in led if d["kind"] == "secured_new" and d["drawn"] == y),
+            "legacy_loan": EXISTING_GPU_LOAN if i == 0 else 0.0,
+            "equity": equity, "atm_gross": atm_gross, "atm_fee": atm_gross - equity, "atm_shares": atm_gross * 1000 / price,
+            "converts": converts, "interest": interest, "repaid": repaid, "cash": cash, "ebitda": ebitda[i],
         })
-    return rows
+    return rows, led
 
 
-def write_revised(rp, price):
+def write_revised(plan_out, price):
+    rp, led = plan_out
     years = [r["year"] for r in rp]
-    rows = [("New GPU loans (contracted capacity)", lambda r: r["gpu_loans"]),
-            ("Loan on GPUs already installed", lambda r: r["legacy_loan"]),
-            ("ATM equity", lambda r: r["equity"]),
-            ("Convertible notes", lambda r: r["converts"])]
-    L = ["", f"## 5. Money to raise, {years[0]}–{years[-1]}", "",
-         "| $B | " + " | ".join(str(y) for y in years) + " | Total |", "|---" * (len(years) + 2) + "|"]
-    for label, fn in rows:
-        vals = [fn(r) for r in rp]
-        L.append(f"| {label} | " + " | ".join(f"{v:,.1f}" if v else "—" for v in vals) + f" | {sum(vals):,.1f} |")
-    tot = [sum(fn(r) for _, fn in rows) for r in rp]
-    L.append("| **Total to raise** | " + " | ".join(f"**{v:,.1f}**" for v in tot) + f" | **{sum(tot):,.1f}** |")
+    yrs = " | ".join(str(y) for y in years)
+    n = len(years)
+
+    def table(rows_, total=True, first="$B", dec=1):
+        L = [f"| {first} | {yrs} |" + (" Total |" if total else ""), "|---" * (n + 1 + (1 if total else 0)) + "|"]
+        for label, vals, bold in rows_:
+            cells = [f"{v:,.{dec}f}" if round(v, dec) else "—" for v in vals]
+            tot = f"{sum(vals):,.{dec}f}" if total else None
+            if bold:
+                label, cells = f"**{label}**", [f"**{c}**" for c in cells]
+                tot = f"**{tot}**" if tot else None
+            L.append(f"| {label} | " + " | ".join(cells) + (f" | {tot} |" if total else " |"))
+        return L
+
+    pick = lambda kind: [d for d in led if d["kind"] == kind]
+    L = ["", f"## 5. Money to raise, {years[0]}–{years[-1]}", ""]
+    raise_rows = [("New GPU loans (contracted capacity)", [r["gpu_loans"] for r in rp], False),
+                  ("Loan on GPUs already installed", [r["legacy_loan"] for r in rp], False),
+                  ("ATM equity (net)", [r["equity"] for r in rp], False),
+                  ("Convertible notes", [r["converts"] for r in rp], False)]
+    raise_rows.append(("Total to raise", [sum(v[i] for _, v, _ in raise_rows) for i in range(n)], True))
+    L += table(raise_rows)
+
+    # --- Convertible notes
+    new_conv = pick("convert_new")
+    L += ["", "### Convertible notes to issue", "",
+          "| Issue | Amount | Coupon | Conversion price | Matures | Shares if converted (M) | Coupon a year |",
+          "|---|---|---|---|---|---|---|"]
+    for d in new_conv:
+        L.append(f"| {d['drawn']} | {b(d['amount'])} | {pct_coupon(d['rate'])} | ${d['conversion_price']:.2f} "
+                 f"({CONVERT_PREMIUM:.0%} over ${price:.2f}) | {d['bullet']} | {d['amount'] * 1000 / d['conversion_price']:.1f} | "
+                 f"{b(d['amount'] * d['rate'], 2)} |")
+    tc = sum(d["amount"] for d in new_conv)
+    L.append(f"| **Total** | **{b(tc)}** | | | | **{sum(d['amount'] * 1000 / d['conversion_price'] for d in new_conv):.1f}** | "
+             f"**{b(sum(d['amount'] * d['rate'] for d in new_conv), 2)}** |")
+    L += ["", "Unsecured, like the existing eight series. If the stock is above the conversion price at maturity they "
+          "become shares; if not, Nebius repays them in cash."]
+
+    # --- ATM
+    L += ["", "### ATM equity", "",
+          "| | " + yrs + " | Total |", "|---" * (n + 2) + "|"]
+    for label, key, f in (("Net proceeds ($B)", "equity", "{:,.1f}"), ("Gross sales ($B)", "atm_gross", "{:,.1f}"),
+                          ("Commission at 1.25% ($B)", "atm_fee", "{:,.2f}"), ("Shares sold (M)", "atm_shares", "{:,.1f}")):
+        vals = [r[key] for r in rp]
+        L.append(f"| {label} | " + " | ".join(f.format(v) for v in vals) + f" | {f.format(sum(vals))} |")
+    L += ["", f"Shares priced at today's ${price:.2f}. The current program has ~12.3M shares left, about ${12.27 * price / 1000:.1f}B, "
+          "so 2027 needs a new program on top of it."]
+
+    # --- Loan on GPUs already installed
+    leg = pick("secured_legacy")
+    if leg:
+        d = leg[0]
+        L += ["", "### Loan on GPUs already installed", "",
+              f"- **Amount:** {b(d['amount'])}, drawn {d['drawn']}, against the ~{b(EXISTING_GPU_VALUE, 0)} of GPUs and servers "
+              "on the books at June 30, 2026. Part of that already backs the $775M MUFG loan; on the ~$10B left, "
+              f"{b(d['amount'])} is a ~{d['amount'] / (EXISTING_GPU_VALUE - MUFG_LOAN):.0%} advance.",
+              f"- **Rate:** {d['rate']:.2%} (SOFR 3.88% + 2.50%, the MUFG terms), floating.",
+              f"- **Repayment:** equal parts over {d['term']} years from {d['drawn'] + 1}. Shorter than the new loans, because "
+              "these GPUs are already 1–2 years old.",
+              "- **Collateral:** the installed GPUs and the customer contracts they serve.", ""]
+        L += table([("Drawn", [d["amount"] if y == d["drawn"] else 0.0 for y in years], False),
+                    ("Repaid", [repaid_in(d, y) for y in years], False),
+                    ("Interest", [interest_in(d, y) for y in years], False),
+                    ("Balance at year-end", [balance(d, y) for y in years], True)], total=False, dec=2)
+
+    # --- New GPU loans
+    new_sec = pick("secured_new")
+    L += ["", "### New GPU loans (contracted capacity)", "",
+          f"- **Size:** {SECURED_SHARE_OF_GPU:.0%} of each year's GPU capex (GPUs are {GPU_SHARE:.0%} of capex), only on capacity "
+          "with a signed investment-grade contract.",
+          f"- **Rate:** {SECURED_RATE:.2%} (SOFR + 2.50%), floating.",
+          f"- **Repayment:** equal parts over {SECURED_TERM} years, starting the year after each draw.",
+          "- **Structure:** one ring-fenced subsidiary per contract, like the July 2026 MUFG loan.", "",
+          "Balance at year-end by vintage ($B):", ""]
+    L += table([(d["name"].replace("GPU loan, ", "").replace(" vintage", " loans"), [balance(d, y) for y in years], False)
+                for d in new_sec] +
+               [("Total balance", [sum(balance(d, y) for d in new_sec) for y in years], True)], total=False)
+    L += [""]
+    L += table([("Drawn", [sum(d["amount"] for d in new_sec if d["drawn"] == y) for y in years], False),
+                ("Repaid", [sum(repaid_in(d, y) for d in new_sec) for y in years], False),
+                ("Interest", [sum(interest_in(d, y) for d in new_sec) for y in years], False)], dec=2)
+
+    # --- All debt
+    groups = [("MUFG secured loan", "secured_existing"), ("Loan on GPUs already installed", "secured_legacy"),
+              ("New GPU loans", "secured_new"), ("Existing converts (8 series)", "convert_existing"),
+              ("New converts", "convert_new")]
+    L += ["", "## 6. Debt", "", "### Outstanding at year-end ($B principal)", "",
+          f"| | 2026 | {yrs} |", "|---" * (n + 2) + "|"]
+    for label, kind in groups:
+        vals = [sum(balance(d, y) for d in pick(kind)) for y in [2026] + years]
+        L.append(f"| {label} | " + " | ".join(f"{v:,.1f}" if v else "—" for v in vals) + " |")
+    sec = [sum(balance(d, y) for d in led if d["kind"].startswith("secured")) for y in [2026] + years]
+    unsec = [sum(balance(d, y) for d in led if d["kind"].startswith("convert")) for y in [2026] + years]
+    L.append("| Secured | " + " | ".join(f"{v:,.1f}" for v in sec) + " |")
+    L.append("| Unsecured | " + " | ".join(f"{v:,.1f}" for v in unsec) + " |")
+    L.append("| **Total debt** | " + " | ".join(f"**{a + c:,.1f}**" for a, c in zip(sec, unsec)) + " |")
+    L.append("| Secured / EBITDA | — | " + " | ".join(f"{sec[i + 1] / r['ebitda']:.1f}x" for i, r in enumerate(rp)) + " |")
+    L.append("| Total debt / EBITDA | — | " + " | ".join(f"{(sec[i + 1] + unsec[i + 1]) / r['ebitda']:.1f}x" for i, r in enumerate(rp)) + " |")
+
+    L += ["", "### Interest by instrument ($B)", ""]
+    L += table([(label, [sum(interest_in(d, y) for d in pick(kind)) for y in years], False) for label, kind in groups] +
+               [("Total interest", [sum(interest_in(d, y) for d in led) for y in years], True)], dec=2)
+    L.append("| EBITDA / interest | " + " | ".join(f"{r['ebitda'] / sum(interest_in(d, r['year']) for d in led):.1f}x" for r in rp) + " | |")
+
+    L += ["", "### Principal paid in cash ($B)", ""]
+    L += table([(label, [sum(repaid_in(d, y) for d in pick(kind)) for y in years], False) for label, kind in groups] +
+               [("Total", [sum(repaid_in(d, y) for d in led) for y in years], True)], dec=2)
+    L += ["", "Converts that are in the money at maturity turn into shares and cost no cash: the June 2029 notes "
+          "($51.45) and September 2030 notes ($138.75). The August 2030 notes convert at $313.46, above today's price, "
+          f"so they're repaid in cash at ~{AUG_2030_ACCRETION:.0%} of principal."]
+
+    after = defaultdict(lambda: [0.0, 0.0])
+    last = years[-1]
+    for d in led:
+        if "term" in d:
+            for y in range(last + 1, d["drawn"] + d["term"] + 1):
+                after[y][0] += d["amount"] / d["term"]
+        elif d["bullet"] > last:
+            after[d["bullet"]][1] += d["amount"]
+    L += ["", f"### Due after {last} ($B principal)", "", "| Year | Secured repayments | Converts maturing |", "|---|---|---|"]
+    for y in sorted(after):
+        L.append(f"| {y} | {after[y][0]:,.1f} | {after[y][1]:,.1f} |" if after[y][1] else f"| {y} | {after[y][0]:,.1f} | — |")
+    L.append(f"| **Total** | **{sum(v[0] for v in after.values()):,.1f}** | **{sum(v[1] for v in after.values()):,.1f}** |")
     return L
 
 
@@ -328,17 +487,21 @@ def write_csv(t, out, prow, mix, rp):
                 w.writerow(["plan_usd_bn", r["year"], k, round(r[k], 4)])
         for k, v in sorted(mix.items()):
             w.writerow(["reference_mix", "2025-2026", k, round(v, 4)])
-        for r in rp:
+        rows_, led = rp
+        for r in rows_:
             for k, v in r.items():
                 if k != "year":
                     w.writerow(["revised_plan_usd_bn", r["year"], k, round(v, 4)])
+        for d in led:
+            for y in [2026] + REVISED_YEARS:
+                w.writerow(["debt_balance_usd_bn", f"{d['name']} | {y}", d["kind"], round(balance(d, y), 4)])
 
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     t, out, prow, mix, rp = write(load())
     write_csv(t, out, prow, mix, rp)
-    for r in rp:
+    for r in rp[0]:
         print(f"{r['year']}  GPU loans {b(r['gpu_loans'] + r['legacy_loan']):>7}  equity {b(r['equity']):>6}  "
               f"converts {b(r['converts']):>6}  interest {b(r['interest']):>6}  cash {b(r['cash']):>6}")
 

@@ -96,6 +96,119 @@ This ignores operating cash. The revised plan below uses it.
 |---|---|---|---|---|---|
 | New GPU loans (contracted capacity) | 13.0 | 13.0 | 13.0 | 13.0 | 51.8 |
 | Loan on GPUs already installed | 5.0 | — | — | — | 5.0 |
-| ATM equity | 4.6 | 7.1 | 7.1 | 9.4 | 28.2 |
-| Convertible notes | 4.6 | 7.1 | 7.1 | 9.4 | 28.2 |
-| **Total to raise** | **27.2** | **27.1** | **27.2** | **31.7** | **113.3** |
+| ATM equity (net) | 4.7 | 7.4 | 7.5 | 9.7 | 29.3 |
+| Convertible notes | 4.7 | 7.4 | 7.5 | 9.7 | 29.3 |
+| **Total to raise** | **27.3** | **27.9** | **27.9** | **32.4** | **115.5** |
+
+### Convertible notes to issue
+
+| Issue | Amount | Coupon | Conversion price | Matures | Shares if converted (M) | Coupon a year |
+|---|---|---|---|---|---|---|
+| 2027 | $4.7B | 2.5% | $309.86 (40% over $221.33) | 2032 | 15.1 | $0.12B |
+| 2028 | $7.4B | 2.5% | $309.86 (40% over $221.33) | 2033 | 24.0 | $0.19B |
+| 2029 | $7.5B | 2.5% | $309.86 (40% over $221.33) | 2034 | 24.2 | $0.19B |
+| 2030 | $9.7B | 2.5% | $309.86 (40% over $221.33) | 2035 | 31.4 | $0.24B |
+| **Total** | **$29.3B** | | | | **94.6** | **$0.73B** |
+
+Unsecured, like the existing eight series. If the stock is above the conversion price at maturity they become shares; if not, Nebius repays them in cash.
+
+### ATM equity
+
+| | 2027 | 2028 | 2029 | 2030 | Total |
+|---|---|---|---|---|---|
+| Net proceeds ($B) | 4.7 | 7.4 | 7.5 | 9.7 | 29.3 |
+| Gross sales ($B) | 4.7 | 7.5 | 7.6 | 9.8 | 29.7 |
+| Commission at 1.25% ($B) | 0.06 | 0.09 | 0.09 | 0.12 | 0.37 |
+| Shares sold (M) | 21.4 | 34.1 | 34.2 | 44.5 | 134.1 |
+
+Shares priced at today's $221.33. The current program has ~12.3M shares left, about $2.7B, so 2027 needs a new program on top of it.
+
+### Loan on GPUs already installed
+
+- **Amount:** $5.0B, drawn 2027, against the ~$11B of GPUs and servers on the books at June 30, 2026. Part of that already backs the $775M MUFG loan; on the ~$10B left, $5.0B is a ~49% advance.
+- **Rate:** 6.38% (SOFR 3.88% + 2.50%, the MUFG terms), floating.
+- **Repayment:** equal parts over 3 years from 2028. Shorter than the new loans, because these GPUs are already 1–2 years old.
+- **Collateral:** the installed GPUs and the customer contracts they serve.
+
+| $B | 2027 | 2028 | 2029 | 2030 |
+|---|---|---|---|---|
+| Drawn | 5.00 | — | — | — |
+| Repaid | — | 1.67 | 1.67 | 1.67 |
+| Interest | 0.16 | 0.32 | 0.21 | 0.11 |
+| **Balance at year-end** | **5.00** | **3.33** | **1.67** | **—** |
+
+### New GPU loans (contracted capacity)
+
+- **Size:** 30% of each year's GPU capex (GPUs are 64% of capex), only on capacity with a signed investment-grade contract.
+- **Rate:** 6.38% (SOFR + 2.50%), floating.
+- **Repayment:** equal parts over 5 years, starting the year after each draw.
+- **Structure:** one ring-fenced subsidiary per contract, like the July 2026 MUFG loan.
+
+Balance at year-end by vintage ($B):
+
+| $B | 2027 | 2028 | 2029 | 2030 |
+|---|---|---|---|---|
+| 2027 loans | 13.0 | 10.4 | 7.8 | 5.2 |
+| 2028 loans | — | 13.0 | 10.4 | 7.8 |
+| 2029 loans | — | — | 13.0 | 10.4 |
+| 2030 loans | — | — | — | 13.0 |
+| **Total balance** | **13.0** | **23.3** | **31.1** | **36.3** |
+
+| $B | 2027 | 2028 | 2029 | 2030 | Total |
+|---|---|---|---|---|---|
+| Drawn | 12.96 | 12.96 | 12.96 | 12.96 | 51.84 |
+| Repaid | — | 2.59 | 5.18 | 7.78 | 15.55 |
+| Interest | 0.41 | 1.24 | 1.90 | 2.40 | 5.95 |
+
+## 6. Debt
+
+### Outstanding at year-end ($B principal)
+
+| | 2026 | 2027 | 2028 | 2029 | 2030 |
+|---|---|---|---|---|---|
+| MUFG secured loan | 0.8 | 0.8 | 0.8 | 0.8 | — |
+| Loan on GPUs already installed | — | 5.0 | 3.3 | 1.7 | — |
+| New GPU loans | — | 13.0 | 23.3 | 31.1 | 36.3 |
+| Existing converts (8 series) | 13.4 | 13.4 | 13.4 | 13.3 | 8.3 |
+| New converts | — | 4.7 | 12.1 | 19.6 | 29.3 |
+| Secured | 0.8 | 18.7 | 27.4 | 33.5 | 36.3 |
+| Unsecured | 13.4 | 18.1 | 25.6 | 33.0 | 37.6 |
+| **Total debt** | **14.2** | **36.9** | **53.0** | **66.5** | **73.9** |
+| Secured / EBITDA | — | 2.6x | 2.0x | 1.7x | 1.4x |
+| Total debt / EBITDA | — | 5.1x | 3.9x | 3.3x | 2.8x |
+
+### Interest by instrument ($B)
+
+| $B | 2027 | 2028 | 2029 | 2030 | Total |
+|---|---|---|---|---|---|
+| MUFG secured loan | 0.05 | 0.05 | 0.05 | 0.02 | 0.17 |
+| Loan on GPUs already installed | 0.16 | 0.32 | 0.21 | 0.11 | 0.80 |
+| New GPU loans | 0.41 | 1.24 | 1.90 | 2.40 | 5.95 |
+| Existing converts (8 series) | 0.26 | 0.26 | 0.26 | 0.24 | 1.03 |
+| New converts | 0.06 | 0.21 | 0.40 | 0.61 | 1.28 |
+| **Total interest** | **0.94** | **2.08** | **2.82** | **3.39** | **9.23** |
+| EBITDA / interest | 7.7x | 6.6x | 7.2x | 7.9x | |
+
+### Principal paid in cash ($B)
+
+| $B | 2027 | 2028 | 2029 | 2030 | Total |
+|---|---|---|---|---|---|
+| MUFG secured loan | — | — | — | 0.78 | 0.78 |
+| Loan on GPUs already installed | — | 1.67 | 1.67 | 1.67 | 5.00 |
+| New GPU loans | — | 2.59 | 5.18 | 7.78 | 15.55 |
+| Existing converts (8 series) | — | — | — | 3.80 | 3.80 |
+| New converts | — | — | — | — | 0.00 |
+| **Total** | **—** | **4.26** | **6.85** | **14.01** | **25.12** |
+
+Converts that are in the money at maturity turn into shares and cost no cash: the June 2029 notes ($51.45) and September 2030 notes ($138.75). The August 2030 notes convert at $313.46, above today's price, so they're repaid in cash at ~110% of principal.
+
+### Due after 2030 ($B principal)
+
+| Year | Secured repayments | Converts maturing |
+|---|---|---|
+| 2031 | 10.4 | 2.7 |
+| 2032 | 10.4 | 6.3 |
+| 2033 | 7.8 | 9.2 |
+| 2034 | 5.2 | 9.8 |
+| 2035 | 2.6 | 9.7 |
+| **Total** | **36.3** | **37.6** |
