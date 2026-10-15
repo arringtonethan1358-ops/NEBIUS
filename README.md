@@ -35,6 +35,7 @@ Read next: the [call note](research/call-note.md) (one page), then the [initiati
 - **[Prediction scorecard](research/scorecard.md):** dated calls for each quarter, scored after the report.
 - **[Scenario model](models/output/scenarios.md):** 2026–2027 bear, base and bull paths for ARR, revenue, EBITDA, capex and the funding gap.
 - **[5 GW funding model](models/output/funding_5gw.md):** the author's 2027–2030 funding workbook, ported to code and reconciled to the filings step by step, with a price-per-MW sensitivity. [Review](notes/2026-10-funding-model-review.md).
+- **[Financing plan](models/output/financing_plan.md):** everything Nebius raised in 2025–2026 (converts, offerings, ATM, NVIDIA warrants, secured loan, prepayments, leases) from the 6-K filings, what's outstanding, the frame for funding 2026–2030 ($270B of capex, 45% from prepayments), the money Nebius needs to raise each year in 2027–2030 under the revised plan (GPU loans, ATM equity, converts), with a breakdown of each instrument, and the full debt schedule: balances, interest, repayments and what's due after 2030.
 - **[Dashboard](https://claude.ai/artifact/VctArcL8X2pdPxmKpKs1Yb):** headline numbers, ARR scenarios, cash flow, capacity pipeline, valuation, site list, and a GPU economics calculator. Private until shared.
 
 ## Layout
@@ -43,10 +44,10 @@ Read next: the [call note](research/call-note.md) (one page), then the [initiati
 |---|---|
 | `research/` | Long-form theses and deep dives |
 | `earnings/` | One note per quarter (copy `earnings/TEMPLATE.md`). Next up: [`2026-Q3.md`](earnings/2026-Q3.md), a pre-earnings draft with the bars Q3 must clear |
-| `data/` | `nebius_kpis.csv`: tracked KPIs, each row with a source and a source-quality label. `mw_pipeline.csv` and `contracted_sites.csv`: the author's capacity estimates by stage and site. `gpu_economics.csv`: per-GPU assumptions behind the calculator |
+| `data/` | `nebius_kpis.csv`: tracked KPIs, each row with a source and a source-quality label. `mw_pipeline.csv` and `contracted_sites.csv`: the author's capacity estimates by stage and site. `gpu_economics.csv`: per-GPU assumptions behind the calculator. `financing_history.csv`: every financing since June 2025, with terms and sources |
 | `notes/` | Working drafts and running theses, not yet polished. [`news-log.md`](notes/news-log.md) is filled by the weekly news check. Includes the author's [October 2026 report draft](notes/2026-10-nebius-report-draft.md) and its [fact-check](notes/2026-10-report-review.md), and the [funding model review](notes/2026-10-funding-model-review.md) |
 | `scripts/` | `validate_kpis.py` checks the KPI dataset's schema and sourcing rules. It runs automatically on every pull request |
-| `models/` | `nebius_scenarios.py`: bear, base, bull and author's-pipeline model through 2027, built from `data/`, with EV multiples at the current share price. `funding_5gw.py`: the author's 5 GW workbook (`source/NBIS_5GW_Funding_Model.xlsx`) ported to code, checked cell by cell against it, then reconciled. Output is in [`models/output/`](models/output/). CI fails if any output is stale |
+| `models/` | `nebius_scenarios.py`: bear, base, bull and author's-pipeline model through 2027, built from `data/`, with EV multiples at the current share price. `funding_5gw.py`: the author's 5 GW workbook (`source/NBIS_5GW_Funding_Model.xlsx`) ported to code, checked cell by cell against it, then reconciled. `financing_plan.py`: 2025–2026 financing totals, the outstanding debt, and the 2026–2030 funding plan. Output is in [`models/output/`](models/output/). CI fails if any output is stale |
 
 ## Automation
 
@@ -59,7 +60,7 @@ Read next: the [call note](research/call-note.md) (one page), then the [initiati
 1. Every number gets a citation.
 2. Label each source: `filing` (6-K/20-F financial statements, with page), `filing_derived` (arithmetic on filed numbers), `primary_linked` (company release or letter), `secondary` (press, analysts), or `author_notes` (our own notes, not yet independently confirmed).
 3. Replace secondary figures with primary ones whenever possible.
-4. Before committing data changes, run `python scripts/validate_kpis.py`, `python models/nebius_scenarios.py` and `python models/funding_5gw.py`, and commit the regenerated `models/output/`.
+4. Before committing data changes, run `python scripts/validate_kpis.py`, `python models/nebius_scenarios.py`, `python models/funding_5gw.py` and `python models/financing_plan.py`, and commit the regenerated `models/output/`.
 
 ---
 

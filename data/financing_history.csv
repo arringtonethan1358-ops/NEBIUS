@@ -1,0 +1,28 @@
+date,category,instrument,series,amount_usd_mn,coupon,maturity,conversion_price,shares_mn,accreted_usd_mn,source_quality,source,notes
+2025-06-05,convertible,Convertible senior notes,2.00% notes due Jun 2029,500.0,0.0200,2029-06,51.45,9.718,587.5,filing,Q2-2026 6-K Ex99.2 F-28,"$1.0B private placement in two series; 40% premium to $36.75"
+2025-06-05,convertible,Convertible senior notes,3.00% notes due Jun 2031,500.0,0.0300,2031-06,51.45,9.718,612.5,filing,Q2-2026 6-K Ex99.2 F-28,
+2025-09-15,convertible,Convertible senior notes,1.00% notes due Sep 2030,1581.25,0.0100,2030-09,138.75,11.396,1818.4,filing,Q2-2026 6-K Ex99.2 F-28,"$1.375B plus $206.25M option; 2025 notes total $4,162.5M original principal [Q4-2025 Ex99.1]"
+2025-09-15,convertible,Convertible senior notes,2.75% notes due Sep 2032,1581.25,0.0275,2032-09,138.75,11.396,1818.4,filing,Q2-2026 6-K Ex99.2 F-28,50% premium to the $92.50 share offering
+2025-09-15,equity_offering,Class A public offering,At $92.50 incl. underwriters' option,1150.0,,,,12.432,,filing,Q4-2025 6-K Ex99.1 cash flow statement,"$1.0B plus the $150M option; tied to the Microsoft contract"
+2025-10-31,subsidiary,Avride SAFE,Uber strategic investment,100.0,,,,,,filing,Q4-2025 6-K Ex99.1 cash flow statement,Part of up to $375M of Uber and Nebius commitments to Avride; liability-classified
+2025-11-12,program,ATM equity program,Up to 25M Class A shares,0.0,,,,0.0,,filing,Q2-2026 6-K Ex99.2 F-32,Set up only; sales began May 2026
+2025-12-31,prepayment,Customer prepayments,FY2025 increase in deferred revenue,1565.8,,,,,,filing,Q4-2025 6-K Ex99.1 cash flow statement,Deferred revenue $1577.5M at Dec 31 2025
+2025-12-31,capex,Capital expenditure,FY2025 PP&E and intangibles,4066.0,,,,,,filing,Q4-2025 6-K Ex99.1 cash flow statement,
+2025-12-31,lease,Operating lease liabilities,Balance at Dec 31 2025,845.4,0.063,,,,,filing,Q2-2026 6-K Ex99.2 F-24,"Balance, not a cash raise; 6.3% weighted discount rate, 8.6 years"
+2026-03-23,convertible,Convertible senior notes,1.25% notes due Mar 2031,2587.5,0.0125,2031-03,183.22,14.122,3105.0,filing,Q2-2026 6-K Ex99.2 F-27,$2.25B plus full $337.5M option; 57.5% premium to $116.33
+2026-03-23,convertible,Convertible senior notes,2.625% notes due Mar 2033,1750.0,0.02625,2033-03,180.31,9.706,2100.0,filing,Q2-2026 6-K Ex99.2 F-27,55% premium; $262.5M option not exercised by June 30
+2026-03-31,warrant,NVIDIA pre-funded warrants,21.07M shares at ~$94.94,2000.0,,,94.94,21.066,,filing,Q2-2026 6-K Ex99.2 F-31,Exercise price $0.0001; economically shares
+2026-03-31,prepayment,Customer prepayments,Q1 2026 increase in deferred revenue,3198.0,,,,,,filing,Q1-2026 6-K Ex99.2 cash flow statement,
+2026-03-31,capex,Capital expenditure,Q1 2026 PP&E and intangibles,2472.9,,,,,,filing,Q1-2026 6-K Ex99.2 cash flow statement,
+2026-06-30,atm,ATM share sales,12.73M shares at $223.60,2846.7,,,,12.729,,filing,Q2-2026 6-K Ex99.2 F-7 F-32,Gross; $2811.1M net; 12.27M shares left under the program; delivered from treasury
+2026-06-30,other_equity,Share option exercises,H1 2026,55.6,,,,,,filing,Q2-2026 6-K Ex99.2 F-7,
+2026-06-30,subsidiary,Avride Milestone SAFE,SMB Holding Corporation,75.0,,,,,,filing,Q2-2026 6-K Ex99.2 F-22,Second SAFE on the October 2025 terms
+2026-06-30,prepayment,Customer prepayments,Q2 2026 increase in deferred revenue,1197.0,,,,,,filing_derived,Q2-2026 6-K Ex99.2 F-7,H1 4395.0 less Q1 3198.0
+2026-06-30,capex,Capital expenditure,Q2 2026 PP&E and intangibles,5657.4,,,,,,filing_derived,Q2-2026 6-K Ex99.2 F-7,H1 8130.3 less Q1 2472.9
+2026-06-30,lease,Operating lease liabilities,Balance at Jun 30 2026,1625.3,0.063,,,,,filing,Q2-2026 6-K Ex99.2 F-24,$996.2M of new right-of-use assets in H1 2026
+2026-06-30,lease_commitment,Signed leases not yet commenced,Mainly data centers,12054.1,,,,,,filing,Q2-2026 6-K Ex99.2 F-24,"Undiscounted payments; commence 2026-2027; terms up to 12 years; $612.4M prepaid"
+2026-07-10,secured_debt,Senior secured term loan,"MUFG-led, SOFR + 2.50%",775.0,0.0638,2030-10,,,,filing,Q2-2026 6-K Ex99.2 F-34,"Secured by GPUs and an investment-grade customer contract; coupon at SOFR 3.88%"
+2026-08-24,convertible,Convertible senior notes,0.50% notes due 2030,3450.0,0.0050,2030-08,313.46,11.006,,primary_linked,https://nebius.com/newsroom/nebius-group-announces-closing-of-private-offering-of-convertible-senior-notes-with-aggregate-gross-proceeds-of-approximately-5-75-billion,"$5.0B priced, $5.75B closed with the option; 40% premium to $223.90; accretes (effective conversion price $344.81 at maturity)"
+2026-08-24,convertible,Convertible senior notes,4.50% notes due 2034,2300.0,0.0450,2034-08,324.65,7.085,,primary_linked,https://nebius.com/newsroom/nebius-group-announces-closing-of-private-offering-of-convertible-senior-notes-with-aggregate-gross-proceeds-of-approximately-5-75-billion,45% premium
+2026-08-24,exchange,Note exchange for shares,2.00% notes due Jun 2029,-400.0,0.0200,2029-06,,7.9,-470.0,primary_linked,https://nebius.com/newsroom/nebius-group-announces-pricing-of-upsized-private-offering-of-5-0-billion-of-convertible-senior-notes,"$800M of 2029 and 2031 notes for ~15.8M shares in total, split evenly here"
+2026-08-24,exchange,Note exchange for shares,3.00% notes due Jun 2031,-400.0,0.0300,2031-06,,7.9,-490.0,primary_linked,https://nebius.com/newsroom/nebius-group-announces-pricing-of-upsized-private-offering-of-5-0-billion-of-convertible-senior-notes,

@@ -1,0 +1,264 @@
+section,key,metric,value
+raised_usd_mn,2025,atm,0.0
+raised_usd_mn,2025,capex,4066.0
+raised_usd_mn,2025,convertible,4162.5
+raised_usd_mn,2025,equity_offering,1150.0
+raised_usd_mn,2025,lease,845.4
+raised_usd_mn,2025,other_equity,0.0
+raised_usd_mn,2025,prepayment,1565.8
+raised_usd_mn,2025,program,0.0
+raised_usd_mn,2025,secured_debt,0.0
+raised_usd_mn,2025,subsidiary,100.0
+raised_usd_mn,2025,warrant,0.0
+raised_usd_mn,H1 2026,atm,2846.7
+raised_usd_mn,H1 2026,capex,8130.3
+raised_usd_mn,H1 2026,convertible,4337.5
+raised_usd_mn,H1 2026,equity_offering,0.0
+raised_usd_mn,H1 2026,lease,1625.3
+raised_usd_mn,H1 2026,lease_commitment,12054.1
+raised_usd_mn,H1 2026,other_equity,55.6
+raised_usd_mn,H1 2026,prepayment,4395.0
+raised_usd_mn,H1 2026,secured_debt,0.0
+raised_usd_mn,H1 2026,subsidiary,75.0
+raised_usd_mn,H1 2026,warrant,2000.0
+raised_usd_mn,Jul–Oct 2026,atm,0.0
+raised_usd_mn,Jul–Oct 2026,capex,0.0
+raised_usd_mn,Jul–Oct 2026,convertible,5750.0
+raised_usd_mn,Jul–Oct 2026,equity_offering,0.0
+raised_usd_mn,Jul–Oct 2026,exchange,-800.0
+raised_usd_mn,Jul–Oct 2026,other_equity,0.0
+raised_usd_mn,Jul–Oct 2026,prepayment,0.0
+raised_usd_mn,Jul–Oct 2026,secured_debt,775.0
+raised_usd_mn,Jul–Oct 2026,subsidiary,0.0
+raised_usd_mn,Jul–Oct 2026,warrant,0.0
+outstanding,2.00% notes due Jun 2029,principal,100.0
+outstanding,2.00% notes due Jun 2029,accreted,117.5
+outstanding,2.00% notes due Jun 2029,coupon,0.02
+outstanding,2.00% notes due Jun 2029,conversion_price,51.45
+outstanding,2.00% notes due Jun 2029,shares,1.9436
+outstanding,2.00% notes due Jun 2029,coupon_cost,2.0
+outstanding,0.50% notes due 2030,principal,3450.0
+outstanding,0.50% notes due 2030,accreted,0.0
+outstanding,0.50% notes due 2030,coupon,0.005
+outstanding,0.50% notes due 2030,conversion_price,313.46
+outstanding,0.50% notes due 2030,shares,11.0062
+outstanding,0.50% notes due 2030,coupon_cost,17.25
+outstanding,1.00% notes due Sep 2030,principal,1581.25
+outstanding,1.00% notes due Sep 2030,accreted,1818.4
+outstanding,1.00% notes due Sep 2030,coupon,0.01
+outstanding,1.00% notes due Sep 2030,conversion_price,138.75
+outstanding,1.00% notes due Sep 2030,shares,11.3964
+outstanding,1.00% notes due Sep 2030,coupon_cost,15.8125
+outstanding,"MUFG-led, SOFR + 2.50%",principal,775.0
+outstanding,"MUFG-led, SOFR + 2.50%",accreted,0.0
+outstanding,"MUFG-led, SOFR + 2.50%",coupon,0.0638
+outstanding,"MUFG-led, SOFR + 2.50%",conversion_price,0.0
+outstanding,"MUFG-led, SOFR + 2.50%",shares,0.0
+outstanding,"MUFG-led, SOFR + 2.50%",coupon_cost,49.445
+outstanding,1.25% notes due Mar 2031,principal,2587.5
+outstanding,1.25% notes due Mar 2031,accreted,3105.0
+outstanding,1.25% notes due Mar 2031,coupon,0.0125
+outstanding,1.25% notes due Mar 2031,conversion_price,183.22
+outstanding,1.25% notes due Mar 2031,shares,14.1224
+outstanding,1.25% notes due Mar 2031,coupon_cost,32.3438
+outstanding,3.00% notes due Jun 2031,principal,100.0
+outstanding,3.00% notes due Jun 2031,accreted,122.5
+outstanding,3.00% notes due Jun 2031,coupon,0.03
+outstanding,3.00% notes due Jun 2031,conversion_price,51.45
+outstanding,3.00% notes due Jun 2031,shares,1.9436
+outstanding,3.00% notes due Jun 2031,coupon_cost,3.0
+outstanding,2.75% notes due Sep 2032,principal,1581.25
+outstanding,2.75% notes due Sep 2032,accreted,1818.4
+outstanding,2.75% notes due Sep 2032,coupon,0.0275
+outstanding,2.75% notes due Sep 2032,conversion_price,138.75
+outstanding,2.75% notes due Sep 2032,shares,11.3964
+outstanding,2.75% notes due Sep 2032,coupon_cost,43.4844
+outstanding,2.625% notes due Mar 2033,principal,1750.0
+outstanding,2.625% notes due Mar 2033,accreted,2100.0
+outstanding,2.625% notes due Mar 2033,coupon,0.0262
+outstanding,2.625% notes due Mar 2033,conversion_price,180.31
+outstanding,2.625% notes due Mar 2033,shares,9.7055
+outstanding,2.625% notes due Mar 2033,coupon_cost,45.9375
+outstanding,4.50% notes due 2034,principal,2300.0
+outstanding,4.50% notes due 2034,accreted,0.0
+outstanding,4.50% notes due 2034,coupon,0.045
+outstanding,4.50% notes due 2034,conversion_price,324.65
+outstanding,4.50% notes due 2034,shares,7.0846
+outstanding,4.50% notes due 2034,coupon_cost,103.5
+plan_usd_bn,2026,capex,22.5
+plan_usd_bn,2026,prepay,10.8614
+plan_usd_bn,2026,raised,15.7648
+plan_usd_bn,2026,remaining,-4.1262
+plan_usd_bn,2027,capex,67.5
+plan_usd_bn,2027,prepay,30.375
+plan_usd_bn,2027,raised,0.0
+plan_usd_bn,2027,remaining,37.125
+plan_usd_bn,2028,capex,67.5
+plan_usd_bn,2028,prepay,30.375
+plan_usd_bn,2028,raised,0.0
+plan_usd_bn,2028,remaining,37.125
+plan_usd_bn,2029,capex,67.5
+plan_usd_bn,2029,prepay,30.375
+plan_usd_bn,2029,raised,0.0
+plan_usd_bn,2029,remaining,37.125
+plan_usd_bn,2030,capex,67.5
+plan_usd_bn,2030,prepay,30.375
+plan_usd_bn,2030,raised,0.0
+plan_usd_bn,2030,remaining,37.125
+reference_mix,2025-2026,convertible,0.6761
+reference_mix,2025-2026,equity,0.2871
+reference_mix,2025-2026,secured_debt,0.0368
+revised_plan_usd_bn,2027,capex,67.5
+revised_plan_usd_bn,2027,prepay,30.375
+revised_plan_usd_bn,2027,opcash,4.35
+revised_plan_usd_bn,2027,lease,8.0
+revised_plan_usd_bn,2027,rent,0.0
+revised_plan_usd_bn,2027,gpu_loans,12.96
+revised_plan_usd_bn,2027,legacy_loan,5.0
+revised_plan_usd_bn,2027,equity,4.6712
+revised_plan_usd_bn,2027,atm_gross,4.7303
+revised_plan_usd_bn,2027,atm_fee,0.0591
+revised_plan_usd_bn,2027,atm_shares,21.3721
+revised_plan_usd_bn,2027,converts,4.6712
+revised_plan_usd_bn,2027,interest,0.9441
+revised_plan_usd_bn,2027,repaid,0.0
+revised_plan_usd_bn,2027,cash,10.0
+revised_plan_usd_bn,2027,ebitda,7.25
+revised_plan_usd_bn,2028,capex,67.5
+revised_plan_usd_bn,2028,prepay,30.375
+revised_plan_usd_bn,2028,opcash,8.25
+revised_plan_usd_bn,2028,lease,8.0
+revised_plan_usd_bn,2028,rent,0.64
+revised_plan_usd_bn,2028,gpu_loans,12.96
+revised_plan_usd_bn,2028,legacy_loan,0.0
+revised_plan_usd_bn,2028,equity,7.4478
+revised_plan_usd_bn,2028,atm_gross,7.5421
+revised_plan_usd_bn,2028,atm_fee,0.0943
+revised_plan_usd_bn,2028,atm_shares,34.0761
+revised_plan_usd_bn,2028,converts,7.4478
+revised_plan_usd_bn,2028,interest,2.0819
+revised_plan_usd_bn,2028,repaid,4.2587
+revised_plan_usd_bn,2028,cash,10.0
+revised_plan_usd_bn,2028,ebitda,13.75
+revised_plan_usd_bn,2029,capex,67.5
+revised_plan_usd_bn,2029,prepay,30.375
+revised_plan_usd_bn,2029,opcash,12.15
+revised_plan_usd_bn,2029,lease,8.0
+revised_plan_usd_bn,2029,rent,1.28
+revised_plan_usd_bn,2029,gpu_loans,12.96
+revised_plan_usd_bn,2029,legacy_loan,0.0
+revised_plan_usd_bn,2029,equity,7.4842
+revised_plan_usd_bn,2029,atm_gross,7.5789
+revised_plan_usd_bn,2029,atm_fee,0.0947
+revised_plan_usd_bn,2029,atm_shares,34.2427
+revised_plan_usd_bn,2029,converts,7.4842
+revised_plan_usd_bn,2029,interest,2.8227
+revised_plan_usd_bn,2029,repaid,6.8507
+revised_plan_usd_bn,2029,cash,10.0
+revised_plan_usd_bn,2029,ebitda,20.25
+revised_plan_usd_bn,2030,capex,67.5
+revised_plan_usd_bn,2030,prepay,30.375
+revised_plan_usd_bn,2030,opcash,16.05
+revised_plan_usd_bn,2030,lease,8.0
+revised_plan_usd_bn,2030,rent,1.92
+revised_plan_usd_bn,2030,gpu_loans,12.96
+revised_plan_usd_bn,2030,legacy_loan,0.0
+revised_plan_usd_bn,2030,equity,9.7165
+revised_plan_usd_bn,2030,atm_gross,9.8395
+revised_plan_usd_bn,2030,atm_fee,0.123
+revised_plan_usd_bn,2030,atm_shares,44.4561
+revised_plan_usd_bn,2030,converts,9.7165
+revised_plan_usd_bn,2030,interest,3.3852
+revised_plan_usd_bn,2030,repaid,14.0127
+revised_plan_usd_bn,2030,cash,10.0
+revised_plan_usd_bn,2030,ebitda,26.75
+debt_balance_usd_bn,MUFG secured loan (SOFR + 2.50%) | 2026,secured_existing,0.775
+debt_balance_usd_bn,MUFG secured loan (SOFR + 2.50%) | 2027,secured_existing,0.775
+debt_balance_usd_bn,MUFG secured loan (SOFR + 2.50%) | 2028,secured_existing,0.775
+debt_balance_usd_bn,MUFG secured loan (SOFR + 2.50%) | 2029,secured_existing,0.775
+debt_balance_usd_bn,MUFG secured loan (SOFR + 2.50%) | 2030,secured_existing,0.0
+debt_balance_usd_bn,"Convert, 2.00% notes due Jun 2029 | 2026",convert_existing,0.1
+debt_balance_usd_bn,"Convert, 2.00% notes due Jun 2029 | 2027",convert_existing,0.1
+debt_balance_usd_bn,"Convert, 2.00% notes due Jun 2029 | 2028",convert_existing,0.1
+debt_balance_usd_bn,"Convert, 2.00% notes due Jun 2029 | 2029",convert_existing,0.0
+debt_balance_usd_bn,"Convert, 2.00% notes due Jun 2029 | 2030",convert_existing,0.0
+debt_balance_usd_bn,"Convert, 0.50% notes due 2030 | 2026",convert_existing,3.45
+debt_balance_usd_bn,"Convert, 0.50% notes due 2030 | 2027",convert_existing,3.45
+debt_balance_usd_bn,"Convert, 0.50% notes due 2030 | 2028",convert_existing,3.45
+debt_balance_usd_bn,"Convert, 0.50% notes due 2030 | 2029",convert_existing,3.45
+debt_balance_usd_bn,"Convert, 0.50% notes due 2030 | 2030",convert_existing,0.0
+debt_balance_usd_bn,"Convert, 1.00% notes due Sep 2030 | 2026",convert_existing,1.5813
+debt_balance_usd_bn,"Convert, 1.00% notes due Sep 2030 | 2027",convert_existing,1.5813
+debt_balance_usd_bn,"Convert, 1.00% notes due Sep 2030 | 2028",convert_existing,1.5813
+debt_balance_usd_bn,"Convert, 1.00% notes due Sep 2030 | 2029",convert_existing,1.5813
+debt_balance_usd_bn,"Convert, 1.00% notes due Sep 2030 | 2030",convert_existing,0.0
+debt_balance_usd_bn,"Convert, 1.25% notes due Mar 2031 | 2026",convert_existing,2.5875
+debt_balance_usd_bn,"Convert, 1.25% notes due Mar 2031 | 2027",convert_existing,2.5875
+debt_balance_usd_bn,"Convert, 1.25% notes due Mar 2031 | 2028",convert_existing,2.5875
+debt_balance_usd_bn,"Convert, 1.25% notes due Mar 2031 | 2029",convert_existing,2.5875
+debt_balance_usd_bn,"Convert, 1.25% notes due Mar 2031 | 2030",convert_existing,2.5875
+debt_balance_usd_bn,"Convert, 3.00% notes due Jun 2031 | 2026",convert_existing,0.1
+debt_balance_usd_bn,"Convert, 3.00% notes due Jun 2031 | 2027",convert_existing,0.1
+debt_balance_usd_bn,"Convert, 3.00% notes due Jun 2031 | 2028",convert_existing,0.1
+debt_balance_usd_bn,"Convert, 3.00% notes due Jun 2031 | 2029",convert_existing,0.1
+debt_balance_usd_bn,"Convert, 3.00% notes due Jun 2031 | 2030",convert_existing,0.1
+debt_balance_usd_bn,"Convert, 2.75% notes due Sep 2032 | 2026",convert_existing,1.5813
+debt_balance_usd_bn,"Convert, 2.75% notes due Sep 2032 | 2027",convert_existing,1.5813
+debt_balance_usd_bn,"Convert, 2.75% notes due Sep 2032 | 2028",convert_existing,1.5813
+debt_balance_usd_bn,"Convert, 2.75% notes due Sep 2032 | 2029",convert_existing,1.5813
+debt_balance_usd_bn,"Convert, 2.75% notes due Sep 2032 | 2030",convert_existing,1.5813
+debt_balance_usd_bn,"Convert, 2.625% notes due Mar 2033 | 2026",convert_existing,1.75
+debt_balance_usd_bn,"Convert, 2.625% notes due Mar 2033 | 2027",convert_existing,1.75
+debt_balance_usd_bn,"Convert, 2.625% notes due Mar 2033 | 2028",convert_existing,1.75
+debt_balance_usd_bn,"Convert, 2.625% notes due Mar 2033 | 2029",convert_existing,1.75
+debt_balance_usd_bn,"Convert, 2.625% notes due Mar 2033 | 2030",convert_existing,1.75
+debt_balance_usd_bn,"Convert, 4.50% notes due 2034 | 2026",convert_existing,2.3
+debt_balance_usd_bn,"Convert, 4.50% notes due 2034 | 2027",convert_existing,2.3
+debt_balance_usd_bn,"Convert, 4.50% notes due 2034 | 2028",convert_existing,2.3
+debt_balance_usd_bn,"Convert, 4.50% notes due 2034 | 2029",convert_existing,2.3
+debt_balance_usd_bn,"Convert, 4.50% notes due 2034 | 2030",convert_existing,2.3
+debt_balance_usd_bn,"GPU loan, 2027 vintage | 2026",secured_new,0.0
+debt_balance_usd_bn,"GPU loan, 2027 vintage | 2027",secured_new,12.96
+debt_balance_usd_bn,"GPU loan, 2027 vintage | 2028",secured_new,10.368
+debt_balance_usd_bn,"GPU loan, 2027 vintage | 2029",secured_new,7.776
+debt_balance_usd_bn,"GPU loan, 2027 vintage | 2030",secured_new,5.184
+debt_balance_usd_bn,Loan on GPUs already installed | 2026,secured_legacy,0.0
+debt_balance_usd_bn,Loan on GPUs already installed | 2027,secured_legacy,5.0
+debt_balance_usd_bn,Loan on GPUs already installed | 2028,secured_legacy,3.3333
+debt_balance_usd_bn,Loan on GPUs already installed | 2029,secured_legacy,1.6667
+debt_balance_usd_bn,Loan on GPUs already installed | 2030,secured_legacy,0.0
+debt_balance_usd_bn,"Convert, 2027 issue | 2026",convert_new,0.0
+debt_balance_usd_bn,"Convert, 2027 issue | 2027",convert_new,4.6712
+debt_balance_usd_bn,"Convert, 2027 issue | 2028",convert_new,4.6712
+debt_balance_usd_bn,"Convert, 2027 issue | 2029",convert_new,4.6712
+debt_balance_usd_bn,"Convert, 2027 issue | 2030",convert_new,4.6712
+debt_balance_usd_bn,"GPU loan, 2028 vintage | 2026",secured_new,0.0
+debt_balance_usd_bn,"GPU loan, 2028 vintage | 2027",secured_new,0.0
+debt_balance_usd_bn,"GPU loan, 2028 vintage | 2028",secured_new,12.96
+debt_balance_usd_bn,"GPU loan, 2028 vintage | 2029",secured_new,10.368
+debt_balance_usd_bn,"GPU loan, 2028 vintage | 2030",secured_new,7.776
+debt_balance_usd_bn,"Convert, 2028 issue | 2026",convert_new,0.0
+debt_balance_usd_bn,"Convert, 2028 issue | 2027",convert_new,0.0
+debt_balance_usd_bn,"Convert, 2028 issue | 2028",convert_new,7.4478
+debt_balance_usd_bn,"Convert, 2028 issue | 2029",convert_new,7.4478
+debt_balance_usd_bn,"Convert, 2028 issue | 2030",convert_new,7.4478
+debt_balance_usd_bn,"GPU loan, 2029 vintage | 2026",secured_new,0.0
+debt_balance_usd_bn,"GPU loan, 2029 vintage | 2027",secured_new,0.0
+debt_balance_usd_bn,"GPU loan, 2029 vintage | 2028",secured_new,0.0
+debt_balance_usd_bn,"GPU loan, 2029 vintage | 2029",secured_new,12.96
+debt_balance_usd_bn,"GPU loan, 2029 vintage | 2030",secured_new,10.368
+debt_balance_usd_bn,"Convert, 2029 issue | 2026",convert_new,0.0
+debt_balance_usd_bn,"Convert, 2029 issue | 2027",convert_new,0.0
+debt_balance_usd_bn,"Convert, 2029 issue | 2028",convert_new,0.0
+debt_balance_usd_bn,"Convert, 2029 issue | 2029",convert_new,7.4842
+debt_balance_usd_bn,"Convert, 2029 issue | 2030",convert_new,7.4842
+debt_balance_usd_bn,"GPU loan, 2030 vintage | 2026",secured_new,0.0
+debt_balance_usd_bn,"GPU loan, 2030 vintage | 2027",secured_new,0.0
+debt_balance_usd_bn,"GPU loan, 2030 vintage | 2028",secured_new,0.0
+debt_balance_usd_bn,"GPU loan, 2030 vintage | 2029",secured_new,0.0
+debt_balance_usd_bn,"GPU loan, 2030 vintage | 2030",secured_new,12.96
+debt_balance_usd_bn,"Convert, 2030 issue | 2026",convert_new,0.0
+debt_balance_usd_bn,"Convert, 2030 issue | 2027",convert_new,0.0
+debt_balance_usd_bn,"Convert, 2030 issue | 2028",convert_new,0.0
+debt_balance_usd_bn,"Convert, 2030 issue | 2029",convert_new,0.0
+debt_balance_usd_bn,"Convert, 2030 issue | 2030",convert_new,9.7165

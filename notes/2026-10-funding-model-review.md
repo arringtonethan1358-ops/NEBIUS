@@ -96,15 +96,15 @@ The model rolls straight from June 30 into 2027, so July–December 2026 is miss
 
 | Item | Workbook (June 30) | Year-end 2026, pro forma |
 |---|---|---|
-| Cash | $8.0B | ~$7.7B |
-| Debt | $8.5B (carrying value) | ~$15.0B at principal, of which $0.775B secured |
+| Cash | $8.0B | ~$8.4B |
+| Debt | $8.5B (carrying value) | ~$15.8B at principal, of which $0.775B secured |
 | Shares | 271.9M | ~308.7M |
 
 Missing from H2 2026:
 - ~$14.4B of capex
 - ~$7.2B of prepayments
 - the $775M secured loan (July)
-- the $5.0B of converts (August)
+- the $5.75B of converts (August; $5.0B priced plus $750M of options)
 - the $0.8B note exchange
 
 `B83` (secured debt) is 0, but the July loan is secured. Step 1 fixes the opening balances. Debt is measured at principal ($10.04B accreted [F2 F-28]), because that is what accrues interest and gets repaid, rather than the $8.5B carrying value.
@@ -147,9 +147,9 @@ Each step stacks on the previous one. Details are in `models/output/funding_5gw.
 |---|---|---|---|---|---|
 | ARR | $125B | $125B | $60B | $60B | $60B |
 | Outside capital, 2027–30 | $128.7B | $128.7B | $129.7B | $93.9B | $93.9B |
-| Closing cash | $83.6B | $82.7B | $42.3B | $7.7B | $7.7B |
-| Shares, diluted for new converts | 370M | 426M | 553M | 504M | 485M |
-| Net income | $13.1B | $13.0B | −$9.7B | −$8.8B | −$17.4B |
+| Closing cash | $83.6B | $83.5B | $43.0B | $8.4B | $8.4B |
+| Shares, diluted for new converts | 370M | 427M | 556M | 506M | 485M |
+| Net income | $13.1B | $13.0B | −$9.7B | −$8.9B | −$17.4B |
 
 ## What would make the workbook's numbers right
 

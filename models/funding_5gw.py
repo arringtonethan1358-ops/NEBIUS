@@ -85,8 +85,8 @@ WORKBOOK_EXPECTED = {
 # H2 2026 bridge from June 30 to December 31, 2026 ($B). Financing is filed or
 # company-announced; operating flows come from the base case of nebius_scenarios.py.
 JUL_SECURED_LOAN = 0.775        # [F2 F-34]
-AUG_CONVERTS_FACE = 5.0         # [PR]
-AUG_CONVERTS_NET = 4.94         # [S]
+AUG_CONVERTS_FACE = 5.75        # [PR] closing, Aug 24 2026: $5.0B priced + $750M options
+AUG_CONVERTS_NET = 5.681        # gross x 98.8% (net/gross of the earlier $4.94B / $5.0B estimate)
 EXCHANGED_PRINCIPAL = 0.8       # [PR] Aug 2026 exchange of older notes for shares
 EXCHANGE_SHARES = 15.8          # M [PR]
 NVIDIA_WARRANTS = 21.065936     # M, pre-funded, $0.0001 exercise [F2 F-31]

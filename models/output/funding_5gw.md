@@ -16,19 +16,19 @@ The first column reproduces the author's workbook exactly (the script stops if a
 | 2027–30 capex | $270.0B | $270.0B | $254.3B | $254.3B | $254.3B |
 | External capital raised | $128.7B | $128.7B | $129.7B | $93.9B | $93.9B |
 |   of which new equity | $54.0B | $54.0B | $50.9B | $50.9B | $50.9B |
-| 2030 closing debt | $83.2B | $89.7B | $93.8B | $58.0B | $58.0B |
-| 2030 closing cash | $83.6B | $82.7B | $42.3B | $7.7B | $7.7B |
-| 2030 shares, fully diluted for new converts (M) | 370 | 426 | 553 | 504 | 485 |
-| Dilution vs opening shares | +36% | +38% | +79% | +63% | +57% |
-| 2027 equity issue price | $336 | $275 | $174 | $174 | $199 |
-| 2030 net income | $13.1B | $13.0B | $-9.7B | $-8.8B | $-17.4B |
-| 2030 EPS | $37.17 | $36.91 | $-27.58 | $-25.11 | $-35.96 |
+| 2030 closing debt | $83.2B | $90.4B | $94.6B | $58.8B | $58.8B |
+| 2030 closing cash | $83.6B | $83.5B | $43.0B | $8.4B | $8.4B |
+| 2030 shares, fully diluted for new converts (M) | 370 | 427 | 556 | 506 | 485 |
+| Dilution vs opening shares | +36% | +38% | +80% | +64% | +57% |
+| 2027 equity issue price | $336 | $273 | $172 | $172 | $199 |
+| 2030 net income | $13.1B | $13.0B | $-9.7B | $-8.9B | $-17.4B |
+| 2030 EPS | $37.17 | $36.90 | $-27.60 | $-25.13 | $-35.97 |
 | 2030 price at 20x EPS | $743 | $738 | n/m (loss) | n/m (loss) | n/m (loss) |
 
 ## What each step changes
 
 - **Workbook as received.** Reproduces every formula; checked against Excel's saved values.
-- **1. Open at year-end 2026.** Opening cash $7.7B (June 30 + July loan + August converts + base-case H2 prepayments and EBITDA − H2 capex); debt $15.0B at principal, of which $0.775B secured; 308.7M shares incl. NVIDIA's pre-funded warrants and the August exchange shares.
+- **1. Open at year-end 2026.** Opening cash $8.4B (June 30 + July loan + August converts + base-case H2 prepayments and EBITDA − H2 capex); debt $15.8B at principal, of which $0.775B secured; 308.7M shares incl. NVIDIA's pre-funded warrants and the August exchange shares.
 - **2. Price at contract rates.** $12M ARR per MW throughout. Same $8B year-end 2026 ARR, so 0.67 GW live at YE26 and 1.08 GW added a year to reach 5 GW; capex kept at $58.7M per MW ($254B program).
 - **3. Cash sweep.** All operating cash after interest goes to capex (B67 = 100%) before secured debt, converts or equity.
 - **4. Accounting fixes.** Non-GPU capex depreciated over 20 years; $4.0B a year on assets in place at YE26 ($27.4B, same GPU/non-GPU split); opening cash added to equity value for the issue price; EPS on modeled diluted shares instead of a fixed 352.2M.
@@ -42,7 +42,7 @@ Reconciled model (step 4) at a flat ARR per MW. Year-end 2026 ARR stays at $8B, 
 | $7.4M | Q4 2025 observed ($1.25B ARR / ~170 MW) | $37.0B | $16.7B | $-24.2B | $-19.3B | +85% |
 | $8.5M | repo base case (guidance-implied) | $42.5B | $19.1B | $-23.0B | $-17.9B | +76% |
 | $12.0M | 5-year contracts (Microsoft ~$11.6-12.9M) | $60.0B | $26.7B | $-17.4B | $-12.0B | +57% |
-| $16.0M |  | $80.0B | $35.5B | $-9.7B | $-4.0B | +44% |
+| $16.0M |  | $80.0B | $35.5B | $-9.7B | $-4.1B | +44% |
 | $20.0M | workbook opening | $100.0B | $44.2B | $-1.3B | $3.5B | +35% |
 | $25.0M | workbook 2028-30 floor | $125.0B | $55.2B | $7.2B | $11.8B | +29% |
 
@@ -56,8 +56,8 @@ Value per fully diluted share in 2030 = (2030 EBITDA × multiple − debt + cash
 |---|---|---|---|---|
 | $7.4M | $70 | $44 | $172 | $107 |
 | $8.5M | $103 | $64 | $225 | $140 |
-| $12.0M | $227 | $141 | $421 | $261 |
-| $16.0M | $395 | $246 | $675 | $419 |
+| $12.0M | $227 | $141 | $420 | $261 |
+| $16.0M | $395 | $245 | $675 | $419 |
 | $20.0M | $580 | $360 | $950 | $590 |
 | $25.0M | $821 | $510 | $1,306 | $812 |
 
@@ -97,14 +97,14 @@ Value per fully diluted share in 2030 = (2030 EBITDA × multiple − debt + cash
 | Capex | 63.6 | 63.6 | 63.6 | 63.6 |
 | Prepayments | 28.6 | 28.6 | 28.6 | 28.6 |
 | Operating cash applied to capex | 4.9 | 9.2 | 13.6 | 18.4 |
-| Secured debt | 15.9 | 13.1 | 8.6 | 3.9 |
+| Secured debt | 15.9 | 13.1 | 8.7 | 3.9 |
 | Convertible notes | 1.5 | 0.0 | 0.0 | 0.0 |
 | New equity | 12.7 | 12.7 | 12.7 | 12.7 |
-| Cash interest | 0.20 | 1.41 | 2.39 | 3.04 |
-| Closing debt | 32.4 | 45.5 | 54.1 | 58.0 |
-| Closing cash | 7.7 | 7.7 | 7.7 | 7.7 |
+| Cash interest | 0.21 | 1.42 | 2.40 | 3.05 |
+| Closing debt | 33.2 | 46.2 | 54.9 | 58.8 |
+| Closing cash | 8.4 | 8.4 | 8.4 | 8.4 |
 | Equity issue price ($) | 199 | 284 | 370 | 460 |
 | Shares, fully diluted (M) | 378 | 423 | 457 | 485 |
 | Depreciation | 13.3 | 22.6 | 31.9 | 41.1 |
 | Net income | -6.2 | -10.2 | -14.0 | -17.4 |
-| EPS ($) | -16.51 | -24.20 | -30.62 | -35.96 |
+| EPS ($) | -16.52 | -24.22 | -30.64 | -35.97 |
