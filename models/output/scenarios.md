@@ -62,9 +62,9 @@ Share price **$221.33** (2026-10-09 close). Balance sheet as of June 30, 2026, p
 | Converts treated as | debt at accreted principal; exchange shares counted | debt at June 30 fair value (includes conversion value) |
 | Shares (M, incl. NVIDIA warrants) | 308.7 | 292.9 |
 | Equity value | $68.33B | $64.83B |
-| + Debt | $15.02B | $26.60B |
-| − Cash (pro forma) | $14.81B | $14.81B |
-| **Enterprise value** | **$68.53B** | **$76.62B** |
+| + Debt | $15.77B | $27.35B |
+| − Cash (pro forma) | $15.55B | $15.55B |
+| **Enterprise value** | **$68.54B** | **$76.63B** |
 
 **Implied multiples (low–high EV):**
 

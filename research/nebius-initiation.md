@@ -130,7 +130,7 @@ Sources: [F2 F-7] [F1 cash flow statement].
 
 **What the filings show:**
 1. **Prepayments funded 54% of H1 capex** (4,397.7 / 8,130.3, derived). That matches management's 50–60% claim. [F2 F-19] [S]
-2. **Q2 prepayment inflows fell by ~$2B** quarter over quarter, while capex more than doubled. Free cash flow went from roughly breakeven to **–$3.4B in one quarter**. The ATM ($2.8B) filled the gap. The $775M secured facility (July) and $5.0B of converts (August) came next. [F2 F-34] [PR]
+2. **Q2 prepayment inflows fell by ~$2B** quarter over quarter, while capex more than doubled. Free cash flow went from roughly breakeven to **–$3.4B in one quarter**. The ATM ($2.8B) filled the gap. The $775M secured facility (July) and $5.75B of converts (August) came next. [F2 F-34] [PR]
 3. **Deferred revenue has reached $5.98B**, up from $1.58B in December. Customers have prepaid about 10 quarters of current revenue. [F2 F-2, F-19]
 
 **Balance sheet, June 30, 2026:** [F2 F-2, F-17, F-18, F-28]
@@ -159,7 +159,7 @@ Sources: [F2 F-7] [F1 cash flow statement].
 | March 2026 converts, at initial conversion rates (~$183 and ~$180 per share) | ~23.9 *(derived)* | [F2 F-27] |
 | 2025 converts ($4.16B original principal) | *conversion rates not in these 6-Ks; see the 20-F* | |
 | August 2026: $800M of 2029/2031 notes exchanged for shares | ~15.8 | [PR] |
-| August 2026: $5.0B of new converts | *terms in the pricing release* | [PR] |
+| August 2026: $5.75B of new converts ($3.45B 0.50% 2030 at $313.46; $2.3B 4.50% 2034 at $324.65) | ~18.1 *(derived)* | [PR] |
 
 **Key point:** the converts' fair value (**$20.8B**) is 2.5x their carrying value. The market prices them as equity, not debt. When you value Nebius, count the conversion shares in the share base rather than treating the notes as debt. NVIDIA's March 2026 warrants were priced at **~$94.94 per share** ($2,000M / 21.07M shares, derived).
 
@@ -394,7 +394,7 @@ While the debt is outstanding, a paid-off older GPU out-earns a new financed one
   - [Q2 2026 results release](https://www.businesswire.com/news/home/20260812963359/en/Nebius-reports-second-quarter-2026-financial-results)
   - [Q2 2026 shareholder letter](https://assets.nebius.com/assets/4462517b-ce83-41f2-96ed-f2ac1bc06a05/SHLQ226%20(1).pdf-0)
   - [Q4 2025 shareholder letter](https://assets.nebius.com/assets/e59fb92e-9027-473a-8cac-04f9d2e9ea9a/Shareholder%20Letter%20Q4%202025.pdf?cache-buster=2026-02-12T11%3A43%3A13.446Z)
-  - [$5.0B convertible pricing](https://nebius.com/newsroom/nebius-group-announces-pricing-of-upsized-private-offering-of-5-0-billion-of-convertible-senior-notes)
+  - [$5.0B convertible pricing](https://nebius.com/newsroom/nebius-group-announces-pricing-of-upsized-private-offering-of-5-0-billion-of-convertible-senior-notes) and [$5.75B closing](https://nebius.com/newsroom/nebius-group-announces-closing-of-private-offering-of-convertible-senior-notes-with-aggregate-gross-proceeds-of-approximately-5-75-billion)
 - **[S]** Secondary:
   - [TIKR on Q1 2026](https://www.tikr.com/blog/nbis-has-gained-167-in-2026-the-revenue-chart-explains-why)
   - [Yahoo Finance, Q2 call highlights](https://finance.yahoo.com/technology/ai/articles/nebius-group-q2-earnings-call-150444472.html)

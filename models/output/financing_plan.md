@@ -42,8 +42,8 @@ Not counted above:
 | 2026-06-30 | Share option exercises | H1 2026 | $56M | — | filing |
 | 2026-06-30 | Avride Milestone SAFE | SMB Holding Corporation | $75M | — | filing |
 | 2026-07-10 | Senior secured term loan | MUFG-led, SOFR + 2.50% | $775M | — | filing |
-| 2026-08-24 | Convertible senior notes | 0.50% notes due 2030 | $3,450M | 11.0 if converted | secondary |
-| 2026-08-24 | Convertible senior notes | 4.50% notes due 2034 | $2,300M | 7.1 if converted | secondary |
+| 2026-08-24 | Convertible senior notes | 0.50% notes due 2030 | $3,450M | 11.0 if converted | primary_linked |
+| 2026-08-24 | Convertible senior notes | 4.50% notes due 2034 | $2,300M | 7.1 if converted | primary_linked |
 | 2026-08-24 | Note exchange for shares | 2.00% notes due Jun 2029 | −$400M | 7.9 | primary_linked |
 | 2026-08-24 | Note exchange for shares | 3.00% notes due Jun 2031 | −$400M | 7.9 | primary_linked |
 

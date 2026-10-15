@@ -70,8 +70,8 @@ VALUATION = {
     "nvidia_warrants": 21.065936,       # M, pre-funded [F2 F-31]
     "exchange_shares": 15.8,            # M, Aug 2026 note exchange [PR]
     "cash_jun30": 9_098.1,              # $M incl. restricted cash [F2 F-7]
-    "aug_converts_net": 4_940.0,        # $M net proceeds, Aug 2026 [S]
-    "aug_converts_face": 5_000.0,       # $M [PR]
+    "aug_converts_net": 5_681.0,        # $M net proceeds, Aug 2026: gross x 98.8% (net/gross of the earlier $4.94B / $5.0B estimate)
+    "aug_converts_face": 5_750.0,       # $M, $5.0B priced + $750M options exercised in full [PR closing, Aug 24 2026]
     "secured_facility": 775.0,          # $M, Jul 2026 [F2 F-34]
     "converts_accreted": 10_041.8,      # $M principal at maturity, Jun 30 [F2 F-28]
     "converts_fair_value": 20_823.7,    # $M, Jun 30 [F2 F-29]
