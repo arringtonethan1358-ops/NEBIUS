@@ -1,0 +1,110 @@
+section,key,metric,value
+raised_usd_mn,2025,atm,0.0
+raised_usd_mn,2025,capex,4066.0
+raised_usd_mn,2025,convertible,4162.5
+raised_usd_mn,2025,equity_offering,1150.0
+raised_usd_mn,2025,lease,845.4
+raised_usd_mn,2025,other_equity,0.0
+raised_usd_mn,2025,prepayment,1565.8
+raised_usd_mn,2025,program,0.0
+raised_usd_mn,2025,secured_debt,0.0
+raised_usd_mn,2025,subsidiary,100.0
+raised_usd_mn,2025,warrant,0.0
+raised_usd_mn,H1 2026,atm,2846.7
+raised_usd_mn,H1 2026,capex,8130.3
+raised_usd_mn,H1 2026,convertible,4337.5
+raised_usd_mn,H1 2026,equity_offering,0.0
+raised_usd_mn,H1 2026,lease,1625.3
+raised_usd_mn,H1 2026,lease_commitment,12054.1
+raised_usd_mn,H1 2026,other_equity,55.6
+raised_usd_mn,H1 2026,prepayment,4395.0
+raised_usd_mn,H1 2026,secured_debt,0.0
+raised_usd_mn,H1 2026,subsidiary,75.0
+raised_usd_mn,H1 2026,warrant,2000.0
+raised_usd_mn,Jul–Oct 2026,atm,0.0
+raised_usd_mn,Jul–Oct 2026,capex,0.0
+raised_usd_mn,Jul–Oct 2026,convertible,5750.0
+raised_usd_mn,Jul–Oct 2026,equity_offering,0.0
+raised_usd_mn,Jul–Oct 2026,exchange,-800.0
+raised_usd_mn,Jul–Oct 2026,other_equity,0.0
+raised_usd_mn,Jul–Oct 2026,prepayment,0.0
+raised_usd_mn,Jul–Oct 2026,secured_debt,775.0
+raised_usd_mn,Jul–Oct 2026,subsidiary,0.0
+raised_usd_mn,Jul–Oct 2026,warrant,0.0
+outstanding,2.00% notes due Jun 2029,principal,100.0
+outstanding,2.00% notes due Jun 2029,accreted,117.5
+outstanding,2.00% notes due Jun 2029,coupon,0.02
+outstanding,2.00% notes due Jun 2029,conversion_price,51.45
+outstanding,2.00% notes due Jun 2029,shares,1.9436
+outstanding,2.00% notes due Jun 2029,coupon_cost,2.0
+outstanding,0.50% notes due 2030,principal,3450.0
+outstanding,0.50% notes due 2030,accreted,0.0
+outstanding,0.50% notes due 2030,coupon,0.005
+outstanding,0.50% notes due 2030,conversion_price,313.46
+outstanding,0.50% notes due 2030,shares,11.0062
+outstanding,0.50% notes due 2030,coupon_cost,17.25
+outstanding,1.00% notes due Sep 2030,principal,1581.25
+outstanding,1.00% notes due Sep 2030,accreted,1818.4
+outstanding,1.00% notes due Sep 2030,coupon,0.01
+outstanding,1.00% notes due Sep 2030,conversion_price,138.75
+outstanding,1.00% notes due Sep 2030,shares,11.3964
+outstanding,1.00% notes due Sep 2030,coupon_cost,15.8125
+outstanding,"MUFG-led, SOFR + 2.50%",principal,775.0
+outstanding,"MUFG-led, SOFR + 2.50%",accreted,0.0
+outstanding,"MUFG-led, SOFR + 2.50%",coupon,0.0638
+outstanding,"MUFG-led, SOFR + 2.50%",conversion_price,0.0
+outstanding,"MUFG-led, SOFR + 2.50%",shares,0.0
+outstanding,"MUFG-led, SOFR + 2.50%",coupon_cost,49.445
+outstanding,1.25% notes due Mar 2031,principal,2587.5
+outstanding,1.25% notes due Mar 2031,accreted,3105.0
+outstanding,1.25% notes due Mar 2031,coupon,0.0125
+outstanding,1.25% notes due Mar 2031,conversion_price,183.22
+outstanding,1.25% notes due Mar 2031,shares,14.1224
+outstanding,1.25% notes due Mar 2031,coupon_cost,32.3438
+outstanding,3.00% notes due Jun 2031,principal,100.0
+outstanding,3.00% notes due Jun 2031,accreted,122.5
+outstanding,3.00% notes due Jun 2031,coupon,0.03
+outstanding,3.00% notes due Jun 2031,conversion_price,51.45
+outstanding,3.00% notes due Jun 2031,shares,1.9436
+outstanding,3.00% notes due Jun 2031,coupon_cost,3.0
+outstanding,2.75% notes due Sep 2032,principal,1581.25
+outstanding,2.75% notes due Sep 2032,accreted,1818.4
+outstanding,2.75% notes due Sep 2032,coupon,0.0275
+outstanding,2.75% notes due Sep 2032,conversion_price,138.75
+outstanding,2.75% notes due Sep 2032,shares,11.3964
+outstanding,2.75% notes due Sep 2032,coupon_cost,43.4844
+outstanding,2.625% notes due Mar 2033,principal,1750.0
+outstanding,2.625% notes due Mar 2033,accreted,2100.0
+outstanding,2.625% notes due Mar 2033,coupon,0.0262
+outstanding,2.625% notes due Mar 2033,conversion_price,180.31
+outstanding,2.625% notes due Mar 2033,shares,9.7055
+outstanding,2.625% notes due Mar 2033,coupon_cost,45.9375
+outstanding,4.50% notes due 2034,principal,2300.0
+outstanding,4.50% notes due 2034,accreted,0.0
+outstanding,4.50% notes due 2034,coupon,0.045
+outstanding,4.50% notes due 2034,conversion_price,324.65
+outstanding,4.50% notes due 2034,shares,7.0846
+outstanding,4.50% notes due 2034,coupon_cost,103.5
+plan_usd_bn,2026,capex,22.5
+plan_usd_bn,2026,prepay,10.8614
+plan_usd_bn,2026,raised,15.7648
+plan_usd_bn,2026,remaining,-4.1262
+plan_usd_bn,2027,capex,67.5
+plan_usd_bn,2027,prepay,30.375
+plan_usd_bn,2027,raised,0.0
+plan_usd_bn,2027,remaining,37.125
+plan_usd_bn,2028,capex,67.5
+plan_usd_bn,2028,prepay,30.375
+plan_usd_bn,2028,raised,0.0
+plan_usd_bn,2028,remaining,37.125
+plan_usd_bn,2029,capex,67.5
+plan_usd_bn,2029,prepay,30.375
+plan_usd_bn,2029,raised,0.0
+plan_usd_bn,2029,remaining,37.125
+plan_usd_bn,2030,capex,67.5
+plan_usd_bn,2030,prepay,30.375
+plan_usd_bn,2030,raised,0.0
+plan_usd_bn,2030,remaining,37.125
+reference_mix,2025-2026,convertible,0.6761
+reference_mix,2025-2026,equity,0.2871
+reference_mix,2025-2026,secured_debt,0.0368
