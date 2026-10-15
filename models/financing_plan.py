@@ -6,8 +6,13 @@ filings) and totals it by instrument and period, then lists what is still outsta
 Part 2 is the plan, built to be filled in step by step:
   - 2026: capex at the guidance midpoint, with H1 actuals and the financing done since.
   - 2027-2030: $270B of capex; customer prepayments fund 45% of it (taken as given).
-  - The remaining 55% is left open. For reference, it is split the way Nebius funded
-    itself outside prepayments in 2025-2026.
+  - For reference, the remaining 55% split the way Nebius funded itself outside
+    prepayments in 2025-2026.
+
+Part 3 is the revised plan for 2027-2029, year by year: operating cash, leases, secured
+GPU loans and a loan on the GPUs already installed come first; equity and converts fill
+whatever is left, keeping year-end cash above a floor. It tracks interest, loan
+repayments, lease rent, debt outstanding, leverage and new shares.
 
 Writes models/output/financing_plan.md and financing_plan.csv.
 Run from the repo root:  python models/financing_plan.py   (standard library only)
@@ -19,6 +24,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import funding_5gw as fm          # noqa: E402  EBITDA path and year-end 2026 cash
 import nebius_scenarios as scen  # noqa: E402  share price
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -31,8 +37,23 @@ PHASING = [0.25, 0.25, 0.25, 0.25]   # share of the program in each year
 PREPAY_SHARE = 0.45                  # customer prepayments as a share of capex (given)
 PLAN_YEARS = [2027, 2028, 2029, 2030]
 
-# Instruments that fund the rest. None = not decided yet.
-REMAINING_MIX = {"operating_cash": None, "secured_debt": None, "convertible": None, "equity": None, "leases": None}
+# --- Revised plan inputs, 2027-2029 ($B unless noted) ------------------------
+REVISED_YEARS = [2027, 2028, 2029]
+OPCASH_SHARE = 0.60          # cash from operations before interest, as a share of EBITDA (after tax,
+                             # working capital and the already-prepaid part of revenue)
+LEASE_FUNDED = 8.0           # data center capex paid for by landlords (build-to-suit) each year
+LEASE_RENT_YIELD = 0.08      # rent a year on lease-funded capex, starting the year after
+GPU_SHARE = 0.64             # GPUs and servers as a share of capex (author's workbook)
+SECURED_SHARE_OF_GPU = 0.30  # new GPU loans as a share of GPU capex; investment-grade contracts only
+SECURED_RATE = 0.0638        # SOFR 3.88% + 2.50%, the July 2026 MUFG terms
+SECURED_TERM = 5             # years; repaid in equal parts starting the year after drawing
+EXISTING_GPU_LOAN = 5.0      # 2027 loan against the ~$11B of GPUs installed by mid-2026, less the $775M used
+MIN_CASH = 10.0              # floor on year-end cash
+EQUITY_SHARE_OF_RAISE = 0.50 # equity (ATM) share of the money raised from investors; the rest is converts
+ATM_COST = 0.0125            # ATM commission
+NEW_CONVERT_COUPON = 0.025   # coupon on new converts (recent deals: 0.50%-4.50%)
+MUFG_LOAN = 0.775            # existing secured loan, due October 2030
+SHARES_YE26 = 308.7          # M: Class A + B, NVIDIA warrants and the August exchange shares
 
 PERIODS = [("2025", "2025-01-01", "2025-12-31"), ("H1 2026", "2026-01-01", "2026-06-30"),
            ("Jul–Oct 2026", "2026-07-01", "2026-10-15")]
@@ -210,7 +231,7 @@ def write(rows):
           f"Reference only: the split if Nebius keeps funding itself the way it did outside prepayments in 2025–2026 "
           f"({m(mix_base)} raised). Shares are at ${price:.2f} for equity and at a {CONVERT_PREMIUM:.0%} conversion premium "
           "for converts.", "",
-          "| Instrument | 2025–26 share | 2027–30 at that share | Shares (M) | Decided |", "|---|---|---|---|---|"]
+          "| Instrument | 2025–26 share | 2027–30 at that share | Shares (M) |", "|---|---|---|---|"]
     labels = {"convertible": "Convertible notes", "equity": "Equity (offerings, ATM, warrants)", "secured_debt": "Secured debt"}
     for k in ("convertible", "equity", "secured_debt"):
         amt = gap * mix.get(k, 0.0)
@@ -220,21 +241,125 @@ def write(rows):
             sh = f"{amt * 1000 / (price * (1 + CONVERT_PREMIUM)):,.0f} if converted"
         else:
             sh = "—"
-        decided = "—" if REMAINING_MIX.get(k) is None else f"{REMAINING_MIX[k]:.0%}"
-        L.append(f"| {labels[k]} | {mix.get(k, 0):.0%} | {b(amt)} | {sh} | {decided} |")
-    L += ["| Operating cash flow | — | — | — | — |", "| Leases (sites someone else builds) | — | — | — | — |",
-          "", "**Open choices:**",
-          "1. **Operating cash flow.** How much of EBITDA goes to capex after interest and tax? That depends on price per MW "
-          "(see the 5 GW funding model).",
-          "2. **Secured debt.** Scale the July MUFG template to the investment-grade contracts (~$40B cited in July)?",
-          "3. **Converts vs. equity.** Keep converts at ~two-thirds of outside money, or move to ATM equity and secured debt?",
-          "4. **Leases.** Keep leasing data centers ($12.1B signed so far)? If so, part of the $270B never shows up as capex.",
-          "5. **Does the $270B include the shell and power?** That decides whether leases reduce the capex number."]
+        L.append(f"| {labels[k]} | {mix.get(k, 0):.0%} | {b(amt)} | {sh} |")
+    L += ["", "This ignores operating cash. The revised plan below uses it."]
+    rp = revised_plan(out)
+    L += write_revised(rp, price)
     (OUT / "financing_plan.md").write_text("\n".join(L) + "\n", encoding="utf-8")
-    return t, out, prow, mix
+    return t, out, prow, mix, rp
 
 
-def write_csv(t, out, prow, mix):
+def revised_plan(out):
+    """Year-by-year sources and uses for 2027-2029. Equity and converts are the plug."""
+    final = fm.steps()[-1][3]
+    ebitda = fm.compute(final)["ebitda"]                    # reconciled model, $12M ARR per MW
+    cash = fm.steps()[1][3]["cash_open"]                    # pro forma year-end 2026
+    existing_coupons = sum(s["coupon_cost"] for s in out if s["kind"] == "convertible") / 1000
+    existing_converts = sum(s["principal"] for s in out if s["kind"] == "convertible") / 1000
+    tranches, conv_new, leased, shares_atm, shares_conv = [], 0.0, 0.0, 0.0, 0.0
+    rows = []
+    for i, y in enumerate(REVISED_YEARS):
+        capex = CAPEX_2027_30 * PHASING[i]
+        prepay = capex * PREPAY_SHARE
+        opcash = OPCASH_SHARE * ebitda[i]
+        rent = leased * LEASE_RENT_YIELD
+        new_gpu_loans = SECURED_SHARE_OF_GPU * GPU_SHARE * capex
+        legacy_loan = EXISTING_GPU_LOAN if i == 0 else 0.0
+        drawn = new_gpu_loans + legacy_loan
+        sec_open = sum(a - a * min(max(y - 1 - s, 0), SECURED_TERM) / SECURED_TERM for a, s in tranches)
+        principal = sum(a / SECURED_TERM for a, s in tranches if s < y <= s + SECURED_TERM)
+        interest = ((sec_open + MUFG_LOAN) * SECURED_RATE + drawn * SECURED_RATE / 2
+                    + existing_coupons + conv_new * NEW_CONVERT_COUPON)
+        before = cash + prepay + opcash + LEASE_FUNDED + drawn - capex - rent - interest - principal
+        raised = max(0.0, MIN_CASH - before)
+        equity, converts = raised * EQUITY_SHARE_OF_RAISE, raised * (1 - EQUITY_SHARE_OF_RAISE)
+        price = scen.VALUATION["price"]
+        shares_atm += equity * 1000 / (1 - ATM_COST) / price
+        shares_conv += converts * 1000 / (price * (1 + CONVERT_PREMIUM))
+        cash = before + raised
+        tranches.append((drawn, y))
+        conv_new += converts
+        leased += LEASE_FUNDED
+        sec_close = sec_open + drawn - principal
+        rows.append({
+            "year": y, "capex": capex, "prepay": prepay, "opcash": opcash, "lease": LEASE_FUNDED,
+            "gpu_loans": new_gpu_loans, "legacy_loan": legacy_loan, "equity": equity, "converts": converts,
+            "interest": interest, "principal": principal, "rent": rent, "cash": cash, "ebitda": ebitda[i],
+            "secured_close": sec_close + MUFG_LOAN, "leased": leased,
+            "converts_close": existing_converts - (0.1 if y >= 2029 else 0.0) + conv_new,  # Jun 2029 notes convert
+            "shares_atm": shares_atm, "shares_conv": shares_conv,
+        })
+    return rows
+
+
+def write_revised(rp, price):
+    years = [r["year"] for r in rp]
+    head = "| $B | " + " | ".join(str(y) for y in years) + " | 3 years |"
+    sep = "|---" * (len(years) + 2) + "|"
+
+    def line(label, key, total=True, fmt=lambda v: f"{v:,.1f}", bold=False):
+        cells = [fmt(r[key]) for r in rp]
+        tot = fmt(sum(r[key] for r in rp)) if total else ""
+        if bold:
+            label, cells, tot = f"**{label}**", [f"**{c}**" for c in cells], (f"**{tot}**" if tot else "")
+        return f"| {label} | " + " | ".join(cells) + f" | {tot} |"
+
+    last = rp[-1]
+    L = ["", "## 5. Revised plan, 2027–2029", "",
+         "Equity and converts fill whatever the other sources leave, keeping year-end cash at or above the floor. "
+         "Everything else follows the inputs below; change them in `models/financing_plan.py`.", "",
+         "| Input | Value |", "|---|---|",
+         f"| Capex | {b(CAPEX_2027_30 * PHASING[0])} a year (the $270B frame) |",
+         f"| Customer prepayments | {PREPAY_SHARE:.0%} of capex |",
+         f"| Operating cash before interest | {OPCASH_SHARE:.0%} of EBITDA (EBITDA from the reconciled 5 GW model, $12M ARR per MW) |",
+         f"| Lease-funded data centers | {b(LEASE_FUNDED)} a year, rent {LEASE_RENT_YIELD:.0%} a year from the next year |",
+         f"| New GPU loans | {SECURED_SHARE_OF_GPU:.0%} of GPU capex (GPUs = {GPU_SHARE:.0%} of capex), investment-grade contracts only |",
+         f"| Loan on GPUs already installed | {b(EXISTING_GPU_LOAN)} in 2027, against ~$11B of GPUs |",
+         f"| Secured loan terms | {SECURED_RATE:.2%} (SOFR + 2.50%), repaid over {SECURED_TERM} years from the year after drawing |",
+         f"| Minimum year-end cash | {b(MIN_CASH)} |",
+         f"| Money from investors | {EQUITY_SHARE_OF_RAISE:.0%} ATM equity at ${price:.2f}, {1 - EQUITY_SHARE_OF_RAISE:.0%} converts "
+         f"at a {CONVERT_PREMIUM:.0%} premium, {NEW_CONVERT_COUPON:.1%} coupon |",
+         "", "### Sources and uses", "", head, sep,
+         "| *Uses* | | | | |",
+         line("Capex", "capex"), line("Interest (all debt)", "interest"), line("Secured loan repayments", "principal"),
+         line("Rent on lease-funded data centers", "rent"),
+         "| *Sources* | | | | |",
+         line(f"Customer prepayments ({PREPAY_SHARE:.0%})", "prepay"),
+         line(f"Operating cash ({OPCASH_SHARE:.0%} of EBITDA)", "opcash"),
+         line("Lease-funded data centers", "lease"),
+         line("New GPU loans (contracted capacity)", "gpu_loans"),
+         line("Loan on GPUs already installed", "legacy_loan"),
+         line("ATM equity", "equity", bold=True), line("Convertible notes", "converts", bold=True),
+         line("Year-end cash", "cash", total=False),
+         "", "### Capital stack at year-end", "", head, sep,
+         line("Secured debt outstanding (incl. the $775M MUFG loan)", "secured_close", total=False),
+         line("Convertible notes outstanding (principal)", "converts_close", total=False),
+         line("Lease-funded data centers, cumulative", "leased", total=False),
+         line("EBITDA", "ebitda", total=False)]
+    L.append("| Secured debt / EBITDA | " + " | ".join(f"{r['secured_close'] / r['ebitda']:.1f}x" for r in rp) + " | |")
+    L.append("| EBITDA / interest | " + " | ".join(f"{r['ebitda'] / r['interest']:.1f}x" for r in rp) + " | |")
+    existing_conv_shares = 68.6
+    total_new = last["shares_atm"] + last["shares_conv"]
+    L += ["", "### Shares", "",
+          "| M shares | End of 2029 |", "|---|---|",
+          f"| Year-end 2026 (incl. NVIDIA warrants and exchange shares) | {SHARES_YE26:.1f} |",
+          f"| New ATM shares | {last['shares_atm']:.1f} |",
+          f"| New converts, if converted | {last['shares_conv']:.1f} |",
+          f"| **New shares from this plan** | **{total_new:.1f} ({total_new / SHARES_YE26:+.0%})** |",
+          f"| Existing converts, if converted | {existing_conv_shares:.1f} |",
+          f"| Fully diluted | {SHARES_YE26 + total_new + existing_conv_shares:.1f} |",
+          "", "**Read before using:**",
+          "- **Price per MW drives everything.** EBITDA is the reconciled model's $12M ARR per MW path. Higher contract prices "
+          "raise operating cash and how much the GPUs can borrow, and cut the equity needed.",
+          f"- **Shares are priced at today's ${price:.2f}.** A higher share price means fewer shares for the same money, a lower one more.",
+          "- **The rent is a cost the EBITDA path doesn't include,** so it's taken out separately here.",
+          "- **The $100M of 2029 notes** convert at $51.45, far below today's price, so they're assumed to convert into ~1.9M "
+          "shares, not be repaid in cash.",
+          "- **2030 is still open:** the last $67.5B of the $270B, plus $5.0B of converts and the MUFG loan due that year."]
+    return L
+
+
+def write_csv(t, out, prow, mix, rp):
     with open(OUT / "financing_plan.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["section", "key", "metric", "value"])
@@ -249,14 +374,19 @@ def write_csv(t, out, prow, mix):
                 w.writerow(["plan_usd_bn", r["year"], k, round(r[k], 4)])
         for k, v in sorted(mix.items()):
             w.writerow(["reference_mix", "2025-2026", k, round(v, 4)])
+        for r in rp:
+            for k, v in r.items():
+                if k != "year":
+                    w.writerow(["revised_plan_usd_bn", r["year"], k, round(v, 4)])
 
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    t, out, prow, mix = write(load())
-    write_csv(t, out, prow, mix)
-    for r in prow:
-        print(f"{r['year']}  capex {b(r['capex']):>7}  prepay {b(r['prepay']):>7}  raised {b(r['raised']):>6}  left {b(r['remaining']):>7}")
+    t, out, prow, mix, rp = write(load())
+    write_csv(t, out, prow, mix, rp)
+    for r in rp:
+        print(f"{r['year']}  GPU loans {b(r['gpu_loans'] + r['legacy_loan']):>7}  equity {b(r['equity']):>6}  "
+              f"converts {b(r['converts']):>6}  interest {b(r['interest']):>6}  cash {b(r['cash']):>6}")
 
 
 if __name__ == "__main__":

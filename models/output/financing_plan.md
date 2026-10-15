@@ -82,17 +82,74 @@ Not counted above:
 
 Reference only: the split if Nebius keeps funding itself the way it did outside prepayments in 2025–2026 ($21,077M raised). Shares are at $221.33 for equity and at a 40% conversion premium for converts.
 
-| Instrument | 2025–26 share | 2027–30 at that share | Shares (M) | Decided |
-|---|---|---|---|---|
-| Convertible notes | 68% | $100.4B | 324 if converted | — |
-| Equity (offerings, ATM, warrants) | 29% | $42.6B | 193 | — |
-| Secured debt | 4% | $5.5B | — | — |
-| Operating cash flow | — | — | — | — |
-| Leases (sites someone else builds) | — | — | — | — |
+| Instrument | 2025–26 share | 2027–30 at that share | Shares (M) |
+|---|---|---|---|
+| Convertible notes | 68% | $100.4B | 324 if converted |
+| Equity (offerings, ATM, warrants) | 29% | $42.6B | 193 |
+| Secured debt | 4% | $5.5B | — |
 
-**Open choices:**
-1. **Operating cash flow.** How much of EBITDA goes to capex after interest and tax? That depends on price per MW (see the 5 GW funding model).
-2. **Secured debt.** Scale the July MUFG template to the investment-grade contracts (~$40B cited in July)?
-3. **Converts vs. equity.** Keep converts at ~two-thirds of outside money, or move to ATM equity and secured debt?
-4. **Leases.** Keep leasing data centers ($12.1B signed so far)? If so, part of the $270B never shows up as capex.
-5. **Does the $270B include the shell and power?** That decides whether leases reduce the capex number.
+This ignores operating cash. The revised plan below uses it.
+
+## 5. Revised plan, 2027–2029
+
+Equity and converts fill whatever the other sources leave, keeping year-end cash at or above the floor. Everything else follows the inputs below; change them in `models/financing_plan.py`.
+
+| Input | Value |
+|---|---|
+| Capex | $67.5B a year (the $270B frame) |
+| Customer prepayments | 45% of capex |
+| Operating cash before interest | 60% of EBITDA (EBITDA from the reconciled 5 GW model, $12M ARR per MW) |
+| Lease-funded data centers | $8.0B a year, rent 8% a year from the next year |
+| New GPU loans | 30% of GPU capex (GPUs = 64% of capex), investment-grade contracts only |
+| Loan on GPUs already installed | $5.0B in 2027, against ~$11B of GPUs |
+| Secured loan terms | 6.38% (SOFR + 2.50%), repaid over 5 years from the year after drawing |
+| Minimum year-end cash | $10.0B |
+| Money from investors | 50% ATM equity at $221.33, 50% converts at a 40% premium, 2.5% coupon |
+
+### Sources and uses
+
+| $B | 2027 | 2028 | 2029 | 3 years |
+|---|---|---|---|---|
+| *Uses* | | | | |
+| Capex | 67.5 | 67.5 | 67.5 | 202.5 |
+| Interest (all debt) | 0.9 | 2.0 | 2.8 | 5.6 |
+| Secured loan repayments | 0.0 | 3.6 | 6.2 | 9.8 |
+| Rent on lease-funded data centers | 0.0 | 0.6 | 1.3 | 1.9 |
+| *Sources* | | | | |
+| Customer prepayments (45%) | 30.4 | 30.4 | 30.4 | 91.1 |
+| Operating cash (60% of EBITDA) | 4.3 | 8.2 | 12.2 | 24.8 |
+| Lease-funded data centers | 8.0 | 8.0 | 8.0 | 24.0 |
+| New GPU loans (contracted capacity) | 13.0 | 13.0 | 13.0 | 38.9 |
+| Loan on GPUs already installed | 5.0 | 0.0 | 0.0 | 5.0 |
+| **ATM equity** | **4.6** | **7.1** | **7.1** | **18.8** |
+| **Convertible notes** | **4.6** | **7.1** | **7.1** | **18.8** |
+| Year-end cash | 10.0 | 10.0 | 10.0 |  |
+
+### Capital stack at year-end
+
+| $B | 2027 | 2028 | 2029 | 3 years |
+|---|---|---|---|---|
+| Secured debt outstanding (incl. the $775M MUFG loan) | 18.7 | 28.1 | 34.9 |  |
+| Convertible notes outstanding (principal) | 18.1 | 25.2 | 32.2 |  |
+| Lease-funded data centers, cumulative | 8.0 | 16.0 | 24.0 |  |
+| EBITDA | 7.2 | 13.8 | 20.2 |  |
+| Secured debt / EBITDA | 2.6x | 2.0x | 1.7x | |
+| EBITDA / interest | 8.2x | 6.9x | 7.3x | |
+
+### Shares
+
+| M shares | End of 2029 |
+|---|---|
+| Year-end 2026 (incl. NVIDIA warrants and exchange shares) | 308.7 |
+| New ATM shares | 86.2 |
+| New converts, if converted | 60.8 |
+| **New shares from this plan** | **146.9 (+48%)** |
+| Existing converts, if converted | 68.6 |
+| Fully diluted | 524.2 |
+
+**Read before using:**
+- **Price per MW drives everything.** EBITDA is the reconciled model's $12M ARR per MW path. Higher contract prices raise operating cash and how much the GPUs can borrow, and cut the equity needed.
+- **Shares are priced at today's $221.33.** A higher share price means fewer shares for the same money, a lower one more.
+- **The rent is a cost the EBITDA path doesn't include,** so it's taken out separately here.
+- **The $100M of 2029 notes** convert at $51.45, far below today's price, so they're assumed to convert into ~1.9M shares, not be repaid in cash.
+- **2030 is still open:** the last $67.5B of the $270B, plus $5.0B of converts and the MUFG loan due that year.

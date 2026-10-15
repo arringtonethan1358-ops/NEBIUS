@@ -35,7 +35,7 @@ Read next: the [call note](research/call-note.md) (one page), then the [initiati
 - **[Prediction scorecard](research/scorecard.md):** dated calls for each quarter, scored after the report.
 - **[Scenario model](models/output/scenarios.md):** 2026–2027 bear, base and bull paths for ARR, revenue, EBITDA, capex and the funding gap.
 - **[5 GW funding model](models/output/funding_5gw.md):** the author's 2027–2030 funding workbook, ported to code and reconciled to the filings step by step, with a price-per-MW sensitivity. [Review](notes/2026-10-funding-model-review.md).
-- **[Financing plan](models/output/financing_plan.md):** everything Nebius raised in 2025–2026 (converts, offerings, ATM, NVIDIA warrants, secured loan, prepayments, leases) from the 6-K filings, what's outstanding, and the frame for funding 2026–2030: $270B of capex, 45% from prepayments, the rest to decide.
+- **[Financing plan](models/output/financing_plan.md):** everything Nebius raised in 2025–2026 (converts, offerings, ATM, NVIDIA warrants, secured loan, prepayments, leases) from the 6-K filings, what's outstanding, the frame for funding 2026–2030 ($270B of capex, 45% from prepayments), and a revised 2027–2029 plan: prepayments, operating cash, leases and secured GPU loans first, then equity and converts as the plug, with debt, leverage and dilution year by year.
 - **[Dashboard](https://claude.ai/artifact/VctArcL8X2pdPxmKpKs1Yb):** headline numbers, ARR scenarios, cash flow, capacity pipeline, valuation, site list, and a GPU economics calculator. Private until shared.
 
 ## Layout
