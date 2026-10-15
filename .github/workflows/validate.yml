@@ -27,5 +27,7 @@ jobs:
         run: python models/nebius_scenarios.py
       - name: Re-run the 5 GW funding model (also checks it still matches the workbook)
         run: python models/funding_5gw.py
+      - name: Re-run the debt structure model
+        run: python models/debt_structure.py
       - name: Fail if committed model output is stale
-        run: git diff --exit-code models/output || (echo "Model output is out of date. Run 'python models/nebius_scenarios.py' and 'python models/funding_5gw.py', then commit models/output." && exit 1)
+        run: git diff --exit-code models/output || (echo "Model output is out of date. Run 'python models/nebius_scenarios.py', 'python models/funding_5gw.py' and 'python models/debt_structure.py', then commit models/output." && exit 1)
